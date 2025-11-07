@@ -4,7 +4,6 @@
     justify-content: space-between;
     padding: 12px 40px;
     background-color: var(--color-bg);
-    border-bottom: 1px solid #fff;
 }
 
 .navbar-left {
@@ -194,5 +193,5 @@
 }
 
 .login-btn:hover {
-    background-color: #a78100;
+    background-color: #C39500;
 }

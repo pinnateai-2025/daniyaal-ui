@@ -1,0 +1,116 @@
+.hero-section {
+    background-image: url("../../assets/hero-bg.jfif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 72px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-family: playfair display, serif;
+}
+
+.hero-content h1 span {
+    color: #e7b008;
+}
+
+.hero-content h3 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #f1f1f1;
+    font-weight: bolder;
+    font-family: playfair display, serif;
+}
+
+.hero-content p {
+    font-size: 24px;
+    color: #e5e5e5;
+    line-height: 1.3;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.hero-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero-button .collection-btn,
+.hero-button .our-story-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 48px; 
+    padding: 0 30px; 
+    box-sizing: border-box;
+}
+
+.hero-button .collection-btn {
+    background-color: #e7b008;
+    color: #09090b;
+    border: 1px solid transparent; 
+}
+
+.hero-button .collection-btn:hover {
+    background-color: #C39500;
+}
+
+.hero-button .our-story-btn {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.hero-button .our-story-btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.btn-icon {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.collection-btn:hover .btn-icon {
+    transform: translateX(5px);
+}
+
+.our-story-btn:hover .btn-icon {
+    transform: scale(1.1);
+}
