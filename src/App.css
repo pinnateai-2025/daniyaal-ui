@@ -21,10 +21,10 @@ html, body {
 
 :root {
     --color-bg: #fff;
-    --text-color: #09090B;
+    --text-color: #000;
 }
 
 [data-theme="dark"] {
-    --color-bg: #121212;
-    --text-color: #E4E4E7;
+    --color-bg: #000;
+    --text-color: #fff;
 }

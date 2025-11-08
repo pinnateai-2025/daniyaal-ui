@@ -1,3 +1,4 @@
+import FragranceCollection from "../components/FragranceCollection/FragranceCollection";
 import HeroSection from "../components/HeroSection/HeroSection";
 import Navbar from "../components/Navbar/Navbar";
 
@@ -6,7 +7,7 @@ const Home = () => {
         <>
             <Navbar />
             <HeroSection />
-            {/* <FragranceCollection /> */}
+            <FragranceCollection />
             {/* <OurStory /> */}
             {/* <StayInLoop /> */}
             {/* <Footer /> */}

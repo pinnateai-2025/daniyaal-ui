@@ -190,6 +190,10 @@
     background-color: rgba(173, 216, 230, 0.4);
 }
 
+[data-theme="dark"] .theme-toggle:hover {
+    background-color: #27272A;
+}
+
 .theme-toggle .icon {
     font-size: 22px;
     color: #09090B;
@@ -202,6 +206,10 @@
 
 .icon.cart:hover {
     background-color: rgba(173, 216, 230, 0.4);
+}
+
+[data-theme="dark"] .icon.cart:hover {
+    background-color: #27272A;
 }
 
 .login-btn {
