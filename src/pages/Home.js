@@ -1,6 +1,7 @@
 import FragranceCollection from "../components/FragranceCollection/FragranceCollection";
 import HeroSection from "../components/HeroSection/HeroSection";
 import Navbar from "../components/Navbar/Navbar";
+import OurStory from "../components/OurStory/OurStory";
 
 const Home = () => {
     return (
@@ -8,7 +9,7 @@ const Home = () => {
             <Navbar />
             <HeroSection />
             <FragranceCollection />
-            {/* <OurStory /> */}
+            <OurStory />
             {/* <StayInLoop /> */}
             {/* <Footer /> */}
         </>
