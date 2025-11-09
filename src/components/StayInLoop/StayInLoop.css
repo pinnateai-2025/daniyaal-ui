@@ -1,0 +1,124 @@
+.stayinloop-section {
+    padding: 60px 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FFF4F2;
+}
+
+[data-theme="dark"] .stayinloop-section {
+    background-color: #211A0E;
+}
+
+.stayinloop-title {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.stayinloop-title h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-family: playfair display, serif;
+}
+
+.stayinloop-title p {
+    font-size: 20px;
+    color: #71717A;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.stayinloop-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.stayinloop-contact input {
+    width: 320px;
+    height: 40px;
+    padding: 0 15px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 12px;
+    border: 1px solid #d4d4d8;
+    outline: none;
+    background-color: #fff;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .stayinloop-contact input {
+    background-color: #121212;
+    color: #fff;
+}
+
+.stayinloop-contact input:focus {
+    border-color: #e7b008;
+    box-shadow: 0 0 8px rgba(231, 176, 8, 0.2);
+}
+
+.stayinloop-contact button {
+    height: 40px;
+    padding: 0 25px;
+    background-color: #e7b008;
+    color: #000;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.stayinloop-contact button:hover {
+    background-color: #C39500;
+}
+
+@media (max-width: 768px) {
+    .stayinloop-section {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .stayinloop-section p br {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .stayinloop-contact {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .stayinloop-contact input {
+        width: 100%;
+        max-width: none;
+    }
+
+    .stayinloop-contact button {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 425px) {
+    .stayinloop-title h2 {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+
+    .stayinloop-title p {
+        font-size: 18px;
+        line-height: 1.2;
+    }
+}
