@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom"; 
 import logo from "../../assets/logo.png";
 import { FiSearch, FiShoppingCart, FiUser, FiX, FiMenu } from "react-icons/fi";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
@@ -12,7 +13,15 @@ const Navbar = () => {
   const { isDarkMode, toggleTheme } = useTheme();
   const menuRef = useRef(null);
 
-  const navItems = ["Home", "Products", "About", "Our Story", "Gifts", "Contact"];
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "Products", path: "/products" },
+    { name: "About", path: "/about" },
+    { name: "Our Story", path: "/our-story" },
+    { name: "Gifts", path: "/gifts" },
+    { name: "Contact", path: "/contact" },
+  ];
+
   const clearSearch = () => setSearchText("");
 
   // Close menu on click outside
@@ -60,17 +69,17 @@ const Navbar = () => {
         <nav ref={menuRef} className={`navbar-links ${menuOpen ? "open" : ""}`}>
           <ul>
             {navItems.map((item) => (
-              <li key={item}>
-                <a
-                  href="#"
-                  className={activeLink === item ? "active" : ""}
+              <li key={item.name}>
+                <Link
+                  to={item.path}
+                  className={activeLink === item.name ? "active" : ""}
                   onClick={() => {
-                    setActiveLink(item);
+                    setActiveLink(item.name);
                     setMenuOpen(false);
                   }}
                 >
-                  {item}
-                </a>
+                  {item.name}
+                </Link>
               </li>
             ))}
           </ul>
