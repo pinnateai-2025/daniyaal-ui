@@ -124,6 +124,12 @@
     border-radius: 0 0 12px 12px;
 }
 
+.rating-collection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .rating {
     display: flex;
     align-items: center;
@@ -141,6 +147,24 @@
 .star-icon {
     color: #e7b008;
     font-size: 16px;
+}
+
+.collection {
+    background-color: #f1f1f1;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+[data-theme="dark"] .collection {
+    background-color: #27272A;
+}
+
+.collection span {
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .card-content h3 {

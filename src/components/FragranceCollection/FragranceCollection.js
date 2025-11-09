@@ -19,6 +19,7 @@ const fragrances = [
         oldPrice: 3200,
         size: "12ml",
         discount: "₹400",
+        category: "Oud"
     },
     {
         id: 2,
@@ -31,6 +32,7 @@ const fragrances = [
         oldPrice: 2600,
         size: "10ml",
         discount: "₹400",
+        category: "Floral"
     },
     {
         id: 3,
@@ -43,6 +45,7 @@ const fragrances = [
         oldPrice: 3800,
         size: "15ml",
         discount: "₹600",
+        category: "Woody"
     },
     {
         id: 4,
@@ -55,6 +58,7 @@ const fragrances = [
         oldPrice: 4800,
         size: "20ml",
         discount: "₹600",
+        category: "Premium"
     },
 ];
 
@@ -82,10 +86,15 @@ const FragranceCollection = () => {
                         </div>
 
                         <div className="card-content">
-                            <div className="rating">
-                                <FaStar className="star-icon" />
-                                <span>{item.rating}</span>
-                                <p>({item.reviews} reviews)</p>
+                            <div className="rating-collection">
+                                <div className="rating">
+                                    <FaStar className="star-icon" />
+                                    <span>{item.rating}</span>
+                                    <p>({item.reviews} reviews)</p>
+                                </div>
+                                <div className="collection">
+                                    <span>{item.category}</span>
+                                </div>
                             </div>
 
                             <h3>{item.name}</h3>
