@@ -1,0 +1,254 @@
+.footer {
+    background-color: #fafafa;
+    color: #000;
+    font-family: "Inter", sans-serif;
+    padding: 50px 80px 20px;
+}
+
+[data-theme="dark"] .footer {
+    background-color: #27272A;
+}
+
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 40px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 220px;
+    margin: 20px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo img {
+    width: 45px;
+    height: 45px;
+}
+
+.footer-logo h2 {
+    color: #e7b008;
+    margin: 0;
+    font-weight: 700;
+}
+
+.footer-logo p {
+    margin: 0;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #71717A;
+}
+
+.footer-desc {
+    margin: 10px 0;
+    line-height: 1.4;
+    color: #71717A;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 15px;
+    font-size: 22px;
+    color: #71717A;
+    cursor: pointer;
+}
+
+.footer-socials svg:hover {
+  color: #e7b008; 
+}
+
+.footer-section h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #71717A;
+    font-weight: 500;
+}
+
+.footer-section.links ul li:hover,
+.footer-section.care ul li:hover {
+    color: #e7b008;
+    cursor: pointer;
+}
+
+.footer-section.contact ul li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #71717A;
+}
+
+.footer-section.contact ul li img {
+    width: 18px;
+    height: 18px;
+}
+
+.footer-newsletter {
+    text-align: center;
+    margin-top: 40px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 30px;
+}
+
+.footer-newsletter h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.footer-newsletter p {
+    font-size: 16px;
+    color: #71717A;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.newsletter-form input {
+    width: 300px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #71717A;
+    outline: none;
+}
+
+.newsletter-form input:focus {
+    border-color: #e7b008;
+    box-shadow: 0 0 8px rgba(231, 176, 8, 0.2);
+}
+
+.newsletter-form button {
+    background-color: #e7b008;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.newsletter-form button:hover {
+    background-color: #c39500;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 15px;
+    color: #71717A;
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 1024px) {
+    .footer-top {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 50px;
+    }
+
+    .footer-section {
+        margin: 0;
+    }
+
+    .footer-logo img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .footer-logo h2 {
+        font-size: 28px;
+    }
+
+    .footer-logo p {
+        font-size: 16px;
+    }
+
+    .footer-desc {
+        font-size: 18px;
+    }
+
+    .footer-socials {
+        font-size: 20px;
+    }
+
+    .footer-section h3 {
+        font-size: 20px;
+    }
+
+    .footer-section ul li {
+        font-size: 18px;
+    }
+
+    .footer-section.contact ul li {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 40px 30px 20px;
+    }
+
+    .footer-section {
+        margin: 15px 0;
+    }
+}
+
+@media (max-width: 500px) {
+     .footer-top {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 30px 50px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-form input,
+    .newsletter-form button {
+        width: 100%;
+    }
+
+    .footer-newsletter p br {
+        display: none;
+    }
+
+    .footer-section h3 {
+        font-size: 18px;
+    }
+
+    .footer-section ul li {
+        font-size: 14px;
+    }
+
+    .footer-section.contact ul li {
+        font-size: 14px;
+    }
+}
