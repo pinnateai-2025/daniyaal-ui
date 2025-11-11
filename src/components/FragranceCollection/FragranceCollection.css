@@ -287,6 +287,10 @@
 }
 
 @media (max-width: 500px) {
+    .fragrance-collection {
+        padding: 10px 20px;
+    }
+
     .fragrance-grid {
         grid-template-columns: repeat(1, 1fr);
     }

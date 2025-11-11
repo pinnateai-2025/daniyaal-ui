@@ -213,6 +213,10 @@
     background-color: #27272A;
 }
 
+.mobile-extra-buttons {
+    display: none;
+}
+
 .login-btn {
     background-color: #E7B008;
     border: none;
@@ -359,7 +363,7 @@
         align-items: center;
         justify-content: flex-end;
         gap: 12px;
-        margin-left: 280px;
+        margin-left: 380px;
     }
 
     .mobile-navbar-search {
@@ -421,18 +425,63 @@
     .navbar-links a {
         font-size: 16px;
     }
+
+    .navbar-right .theme-toggle,
+    .navbar-right .cart {
+        display: none !important;
+    }
+
+    .mobile-extra-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 24px 25px;
+        border-top: 1px solid #e5e7eb;
+        width: 100%;
+    }
+
+    .mobile-extra-buttons .cart-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100px;
+        background-color: #E7B008;
+        color: #000;
+        border: none;
+        border-radius: 8px;
+        padding: 2px 12px;
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .mobile-extra-buttons .cart-btn:hover {
+        background-color: #c39500;
+    }
+
+    .mobile-extra-buttons .theme-toggle {
+        background: transparent;
+    }
+
+    .mobile-extra-buttons .theme-toggle span {
+        color: var(--text-color);
+        margin-left: 10px;
+        font-size: 15px;
+        font-weight: 500;
+    }
 }
 
 @media (max-width: 700px) {
     .navbar-right {
         gap: 10px;
-        margin-left: 220px;
+        margin-left: 320px;
     }
 }
 
 @media (max-width: 600px) {
     .navbar-right {
-        margin-left: 120px;
+        margin-left: 220px;
     }
 }
 
@@ -501,12 +550,15 @@
     .navbar-links a {
         font-size: 14px;
     }
+
+     .navbar-right {
+        margin-left: 200px;
+    }
 }
 
 @media (max-width: 425px) {
     .navbar-right {
-        margin-left: 50px;
-        gap: 0px;
+        margin-left: 125px;
     }
 }
 
@@ -551,6 +603,6 @@
 
 @media (max-width: 320px) {
     .navbar-right {
-        margin-left: 0px;
+        margin-left: 75px;
     }
 }

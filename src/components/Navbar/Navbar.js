@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FiSearch, FiShoppingCart, FiUser, FiX, FiMenu } from "react-icons/fi";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
@@ -83,6 +83,28 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
+
+          {/* Mobile extra buttons (only visible on <=768px) */}
+          <div className="mobile-extra-buttons">
+            <button className="theme-toggle" onClick={toggleTheme}>
+              {isDarkMode ? (
+                <>
+                  <MdOutlineLightMode className="icon" style={{ color: "white" }} />
+                  <span>Light Mode</span>
+                </>
+              ) : (
+                <>
+                  <MdOutlineDarkMode className="icon" />
+                  <span>Dark Mode</span>
+                </>
+              )}
+            </button>
+
+            <button className="cart-btn">
+              <FiShoppingCart className="icon cart" />
+              <span>Cart</span>
+            </button>
+          </div>
         </nav>
 
         {/* Right Section */}
