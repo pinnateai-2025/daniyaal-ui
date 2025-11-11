@@ -112,7 +112,7 @@
 }
 
 @media (max-width: 800px) {
-   .ourstory-image img {
+    .ourstory-image img {
         max-width: 50%;
     }
 }
@@ -125,6 +125,19 @@
     .ourstory-container {
         flex-direction: column;
         text-align: left;
+    }
+
+    .ourstory-title {
+        font-size: 50px;
+    }
+
+    .ourstory-desc {
+        font-size: 20px;
+    }
+
+    .ourstory-btn {
+        font-size: 15px;
+        padding: 10px 20px;
     }
 
     .ourstory-image img {
