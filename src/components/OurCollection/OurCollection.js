@@ -188,6 +188,17 @@ const OurCollection = () => {
             break;
     }
 
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth <= 499) {
+                setView("grid");
+            }
+        };
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <div className="ourcollection">
             <div className="ourcollection-title">
@@ -295,7 +306,7 @@ const OurCollection = () => {
                     </div>
 
                     {/* View Toggle */}
-                    <div className="view-toggle">
+                    <div className={`view-toggle ${window.innerWidth <= 499 ? "hide" : ""}`}>
                         <button
                             className={`grid ${view === "grid" ? "active" : ""}`}
                             onClick={() => setView("grid")}

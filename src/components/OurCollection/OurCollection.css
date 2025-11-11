@@ -541,12 +541,293 @@
     border-radius: 8px;
     border: 1px solid #e5e7eb;
     background: transparent;
-     cursor: pointer;
-     font-size: 15px;
-     font-weight: 500;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .ourcollection-button button:hover {
     background-color: #f1f1f1;
     border: none;
+}
+
+@media (max-width: 1024px) {
+    .ourcollection {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .collection-filter-bar {
+        display: grid;
+        grid-template-rows: auto auto auto;
+        gap: 15px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .search-box {
+        width: 100%;
+        grid-row: 1;
+    }
+
+    .dropdowns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        grid-row: 2;
+    }
+
+    .filter-btn,
+    .sort-btn,
+    .view-toggle {
+        width: 100%;
+    }
+
+    .view-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: auto;
+        height: 35px;
+    }
+
+    .product-count {
+        grid-row: 3;
+        text-align: left;
+        font-size: 15px;
+        color: #71717A;
+    }
+
+    .dropdown-menu {
+        width: 100% !important;
+        left: 0;
+        right: 0;
+        top: 110%;
+        min-width: unset;
+    }
+
+    .dropdown {
+        width: 100%;
+        position: relative;
+    }
+
+    .filter-btn,
+    .sort-btn {
+        width: 100%;
+    }
+
+    .ourcollection-fragrance-card.list .ourcollection-card-content {
+        padding: 0 14px;
+        width: 100%;
+    }
+
+    .ourcollection-list-buttons {
+        display: flex;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .ourcollection-list-buttons .view-details-btn,
+    .ourcollection-list-buttons .add-cart-btn {
+        width: 50%;
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .ourcollection-title p br {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .ourcollection-fragrance-card.list {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .ourcollection-fragrance-card.list .ourcollection-card-image {
+        flex: 0 0 140px;
+    }
+
+    .ourcollection-fragrance-card.list .ourcollection-card-image img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .ourcollection-fragrance-card.list .ourcollection-card-content {
+        padding: 10px 12px;
+    }
+
+    .ourcollection-card-content h3 {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+
+    .ourcollection-desc {
+        font-size: 13px;
+        line-height: 1.3;
+        margin-bottom: 8px;
+    }
+
+    .ourcollection-rating {
+        font-size: 12px;
+        gap: 4px;
+    }
+
+    .ourcollection-star-icon {
+        font-size: 13px;
+    }
+
+    .ourcollection-price h2 {
+        font-size: 16px;
+    }
+
+    .ourcollection-old-price {
+        font-size: 13px;
+    }
+
+    .ourcollection-size {
+        font-size: 12px;
+        padding: 2px 8px;
+    }
+
+    .ourcollection-collection {
+        font-size: 12px;
+        padding: 3px 8px;
+    }
+
+    .ourcollection-list-buttons {
+        flex-direction: row;
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    .ourcollection-list-buttons .view-details-btn,
+    .ourcollection-list-buttons .add-cart-btn {
+        flex: 1;
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .ourcollection-heart-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 20px;
+        padding: 4px;
+    }
+
+    .ourcollection-cart-icon {
+        width: 30px;
+        height: 25px;
+        font-size: 18px;
+        padding: 4px;
+    }
+
+    .no-products-found h3 {
+        font-size: 20px;
+    }
+
+    .no-products-found p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 499px) {
+    .view-toggle {
+        display: none !important;
+    }
+
+    .ourcollection-fragrance-container {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)) !important;
+        gap: 25px !important;
+        margin-top: 50px !important;
+    }
+
+    .ourcollection-fragrance-card {
+        display: flex !important;
+        flex-direction: column !important;
+        border: 1px solid #e5e7eb !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        background: var(--color-bg);
+        transition: all 0.3s ease;
+    }
+
+    .ourcollection-card-image {
+        position: relative !important;
+        width: 100% !important;
+        height: 280px !important;
+        overflow: hidden !important;
+    }
+
+    .ourcollection-card-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 0 !important;
+    }
+
+    .ourcollection-card-content {
+        padding: 18px !important;
+        border-style: solid;
+        border-color: #71717A;
+        border-width: 0 1px 1px 1px;
+        border-radius: 0 0 12px 12px;
+    }
+
+    .ourcollection-fragrance-card.list {
+        flex-direction: column !important;
+        border-radius: 12px !important;
+    }
+
+    .ourcollection-fragrance-card.list .ourcollection-card-image {
+        border-right: none !important;
+        height: 280px !important;
+        flex: none !important;
+    }
+
+    .ourcollection-fragrance-card.list .ourcollection-card-content {
+        padding: 18px !important;
+    }
+
+    .product-count {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 375px) {
+    .ourcollection-title h1 {
+        font-size: 44px;
+    }
+
+    .ourcollection-title p {
+        font-size: 18px;
+    }
+
+    .dropdowns {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        grid-row: 2;
+    }
+}
+
+@media (max-width: 320px) {
+    .ourcollection-title h1 {
+        font-size: 40px;
+    }
+
+    .ourcollection-title p {
+        font-size: 17px;
+    }
 }
