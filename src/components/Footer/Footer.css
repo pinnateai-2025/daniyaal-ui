@@ -62,7 +62,7 @@
 }
 
 .footer-socials svg:hover {
-  color: #e7b008; 
+    color: #e7b008;
 }
 
 .footer-section h3 {
@@ -218,10 +218,39 @@
     .footer-section {
         margin: 15px 0;
     }
+
+    .footer-logo img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .footer-logo h2 {
+        font-size: 22px;
+    }
+
+    .footer-logo p {
+        font-size: 12px;
+    }
+
+    .footer-desc {
+        font-size: 16px;
+    }
+
+    .footer-section h3 {
+        font-size: 18px;
+    }
+
+    .footer-section ul li {
+        font-size: 16px;
+    }
+
+    .footer-section.contact ul li {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 500px) {
-     .footer-top {
+    .footer-top {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 30px 50px;
@@ -238,10 +267,6 @@
 
     .footer-newsletter p br {
         display: none;
-    }
-
-    .footer-section h3 {
-        font-size: 18px;
     }
 
     .footer-section ul li {
