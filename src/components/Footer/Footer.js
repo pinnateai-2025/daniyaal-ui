@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-top">
-        <div className="footer-section about">
+        <div className="footer-section">
           <div className="footer-logo">
             <img src={logo} alt="DANIYAAL" />
             <div>
