@@ -2,7 +2,7 @@ import Footer from "../components/Footer/Footer";
 import FragranceCollection from "../components/FragranceCollection/FragranceCollection";
 import HeroSection from "../components/HeroSection/HeroSection";
 import Navbar from "../components/Navbar/Navbar";
-import OurStory from "../components/OurStory/OurStory";
+import Story from "../components/Story/Story";
 import StayInLoop from "../components/StayInLoop/StayInLoop";
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
             <Navbar />
             <HeroSection />
             <FragranceCollection />
-            <OurStory />
+            <Story />
             <StayInLoop />
             <Footer />
         </>
