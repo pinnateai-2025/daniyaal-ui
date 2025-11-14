@@ -39,6 +39,7 @@
 
 .about-our-legacy h3 {
     font-size: 36px;
+    color: var(--text-color);
     font-family: "Playfair Display", serif;
 }
 
@@ -65,6 +66,7 @@
 
 .our-values-title h3 {
     font-size: 36px;
+    color: var(--text-color);
     text-align: center;
     font-family: "Playfair Display", serif;
 }
@@ -116,6 +118,7 @@
 
 .our-artisans-title h3 {
     font-size: 36px;
+    color: var(--text-color);
     text-align: center;
     font-family: "Playfair Display", serif;
 }
@@ -129,7 +132,7 @@
 }
 
 .our-artisans {
-    background: #fff;
+    background: var(--color-bg);
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 40px 25px;
@@ -161,7 +164,7 @@
 .our-artisans h6 {
     font-size: 22px;
     font-weight: 700;
-    color: #000;
+    color: var(--text-color);
     margin-bottom: 5px;
     font-family: "Playfair Display", serif;
 }
@@ -190,11 +193,15 @@
     margin-right: auto;
 }
 
+[data-theme="dark"] .about-our-mission {
+    background-color: #211A0E;
+}
+
 .about-our-mission h3 {
     font-size: 32px;
     font-family: "Playfair Display", serif;
     font-weight: 700;
-    color: #000;
+    color: var(--text-color);
     margin-bottom: 20px;
 }
 

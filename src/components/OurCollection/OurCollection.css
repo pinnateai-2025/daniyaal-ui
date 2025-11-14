@@ -544,11 +544,16 @@
     cursor: pointer;
     font-size: 15px;
     font-weight: 500;
+    color: var(--text-color);
 }
 
 .ourcollection-button button:hover {
     background-color: #f1f1f1;
     border: none;
+}
+
+[data-theme="dark"] .ourcollection-button button:hover {
+    background-color: #27272A;
 }
 
 @media (max-width: 1024px) {
