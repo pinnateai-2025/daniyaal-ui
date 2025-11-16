@@ -110,7 +110,7 @@ const Navbar = () => {
         {/* Right Section */}
         <div className="navbar-right">
           {/* Search */}
-          <div className="navbar-search">
+          <div className="navbar-searching">
             <FiSearch className="icon" />
             <input
               type="text"
