@@ -7,7 +7,7 @@ const OurStory = () => {
         <>
             <Navbar />
             <OurJourney />
-             <Footer />
+            <Footer />
         </>
     )
 }
