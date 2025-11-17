@@ -178,7 +178,7 @@
 }
 
 .theme-toggle:hover {
-    background-color: rgba(173, 216, 230, 0.4);
+    background-color: #f1f1f1;
 }
 
 [data-theme="dark"] .theme-toggle:hover {
@@ -196,7 +196,7 @@
 }
 
 .icon.cart:hover {
-    background-color: rgba(173, 216, 230, 0.4);
+    background-color: #f1f1f1;
 }
 
 [data-theme="dark"] .icon.cart:hover {
