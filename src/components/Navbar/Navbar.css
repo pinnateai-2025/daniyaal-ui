@@ -125,7 +125,7 @@
 .navbar-searching {
     display: flex;
     align-items: center;
-    border: 1px solid #d4d4d8;
+    border: 1px solid #e5e7eb;
     border-radius: 10px;
     padding: 0 12px;
     background-color: var(--color-bg);
@@ -235,6 +235,26 @@
 
 .bottom-row {
     display: none;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+.modal-content {
+  animation: popup 0.25s ease;
+}
+
+@keyframes popup {
+  from { transform: scale(0.95); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
 }
 
 @media (max-width: 1024px) {

@@ -43,7 +43,7 @@
 
 .gifts-title p {
     font-size: 22px;
-    color: #71717A;
+    color: #A1A1AA;
 }
 
 .curated-collection-title {
@@ -154,7 +154,7 @@
 .gift-desc {
     margin: 12px 0;
     font-size: 17px;
-    color: #71717A;
+    color: #A1A1AA;
 }
 
 .included-container {
@@ -183,7 +183,7 @@
 }
 
 .included-list ul li {
-    color: #71717A;
+    color: #A1A1AA;
     margin-bottom: 8px;
     font-size: 16px;
     font-weight: 400;
@@ -208,7 +208,7 @@
     display: inline-block;
     margin-left: 10px;
     text-decoration: line-through;
-    color: #71717A;
+    color: #A1A1AA;
     font-size: 18px;
     font-weight: 400;
 }
@@ -390,7 +390,7 @@
 
 .custom-gift-desc p {
     font-size: 18px;
-    color: #71717A;
+    color: #A1A1AA;
     font-weight: 400;
     margin: 20px 0;
 }
@@ -458,7 +458,7 @@
 
 .perfect-gift-desc p {
     font-size: 18px;
-    color: #71717A;
+    color: #A1A1AA;
     font-weight: 400;
     margin: 15px 0;
 }
