@@ -331,7 +331,12 @@
     margin-top: 10px;
 }
 
-.ourcollection-card-content h3:hover {
+.h3-link {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.h3-link:hover {
     color: #e7b008;
 }
 

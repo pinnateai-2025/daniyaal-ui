@@ -5,6 +5,7 @@ import { FaChevronDown, FaStar } from "react-icons/fa";
 import { PiCheckBold } from "react-icons/pi";
 import { FiFilter, FiHeart, FiShoppingCart } from "react-icons/fi";
 import "./OurCollection.css";
+import { Link } from "react-router-dom";
 
 import perfume1 from "../../assets/perfume1.jfif";
 import perfume2 from "../../assets/perfume2.jfif";
@@ -374,7 +375,16 @@ const OurCollection = () => {
                                     </div>
                                 </div>
 
-                                <h3>{item.name}</h3>
+                                <h3>
+                                    <Link
+                                        to={`/product/${item.id}`}
+                                        state={{ product: item, allProducts: fragrances }}
+                                        className="h3-link"
+                                    >
+                                        {item.name}
+                                    </Link>
+                                </h3>
+
                                 <p className="ourcollection-desc">{item.desc}</p>
 
                                 <div className="ourcollection-price-row">
