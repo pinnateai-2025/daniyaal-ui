@@ -3,7 +3,6 @@ import FragranceCollection from "../components/FragranceCollection/FragranceColl
 import HeroSection from "../components/HeroSection/HeroSection";
 import Navbar from "../components/Navbar/Navbar";
 import Story from "../components/Story/Story";
-import StayInLoop from "../components/StayInLoop/StayInLoop";
 
 const Home = () => {
     return (
@@ -12,7 +11,6 @@ const Home = () => {
             <HeroSection />
             <FragranceCollection />
             <Story />
-            <StayInLoop />
             <Footer />
         </>
     )

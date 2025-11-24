@@ -113,12 +113,12 @@
 
 @media (max-width: 425px) {
     .stayinloop-title h2 {
-        font-size: 36px;
+        font-size: 32px;
         margin-bottom: 10px;
     }
 
     .stayinloop-title p {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 1.2;
     }
 }

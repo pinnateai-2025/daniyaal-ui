@@ -4,6 +4,7 @@ import { TbBrandFacebook, TbBrandInstagram, TbBrandTwitter } from "react-icons/t
 import email from "../../assets/email.png";
 import call from "../../assets/call.png";
 import location from "../../assets/location.png";
+import StayInLoop from "../StayInLoop/StayInLoop";
 
 const Footer = () => {
   return (
@@ -18,7 +19,7 @@ const Footer = () => {
             </div>
           </div>
           <p className="footer-desc">
-            Crafting luxury attars and perfumes since tradition meets elegance. 
+            Crafting luxury attars and perfumes since tradition meets elegance.
             Experience the finest fragrances that tell your unique story.
           </p>
           <div className="footer-socials">
@@ -54,26 +55,28 @@ const Footer = () => {
           <h3>Get in Touch</h3>
           <ul>
             <li><img src={call} alt="call" /> +91 98765 43210</li>
-            <li><img src={email} alt="email"  /> info@daniyaalperfumery.com</li>
-            <li><img src={location} alt="location"  /> 123 Fragrance Street, Kannauj, Uttar Pradesh, India 209725</li>
+            <li><img src={email} alt="email" /> info@daniyaalperfumery.com</li>
+            <li><img src={location} alt="location" /> 123 Fragrance Street, Kannauj, Uttar Pradesh, India 209725</li>
           </ul>
         </div>
       </div>
 
       <div className="footer-newsletter">
-        <h3>Stay Connected</h3>
-        <p>
-          Subscribe to our newsletter and be the first to know about new <br /> fragrances, 
-          exclusive offers, and perfumery insights.
-        </p>
-        <div className="newsletter-form">
-          <input type="email" placeholder="Enter your email" />
-          <button>Subscribe</button>
-        </div>
+        <StayInLoop />
       </div>
 
       <div className="footer-bottom">
         <p>© 2024 Daniyaal Perfumery. All rights reserved. | Privacy Policy | Terms of Service</p>
+        <p>
+          Designed and Developed by{" "}
+          <a
+            href="https://pinnate.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Pinnate Technologies.
+          </a>
+        </p>
       </div>
     </footer>
   );
