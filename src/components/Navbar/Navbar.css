@@ -82,7 +82,7 @@
     padding: 0;
 }
 
-.navbar-links a {
+.navbar-links ul li a {
     position: relative;
     text-decoration: none;
     color: #A1A1AA;
@@ -96,23 +96,9 @@
     color: #E7B008;
 }
 
-.navbar-links a::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background-color: #E7B008;
-    transition: width 0.3s ease-in-out;
-}
-
-.navbar-links a.active::after {
-    width: 100%;
-}
-
-.navbar-links a.active {
+.navbar-links ul li a.active {
     color: #E7B008;
+    border-bottom: 2px solid #E7B008;
 }
 
 .navbar-right {
@@ -135,7 +121,7 @@
 }
 
 .navbar-searching .icon {
-    color: #A1A1AA;
+    color: #71717A;
     font-size: 18px;
 }
 
@@ -238,23 +224,30 @@
 }
 
 .modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(8px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 5000;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
 }
 
 .modal-content {
-  animation: popup 0.25s ease;
+    animation: popup 0.25s ease;
 }
 
 @keyframes popup {
-  from { transform: scale(0.95); opacity: 0; }
-  to   { transform: scale(1); opacity: 1; }
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 @media (max-width: 1024px) {

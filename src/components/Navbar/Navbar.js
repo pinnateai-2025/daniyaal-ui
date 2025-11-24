@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FiSearch, FiShoppingCart, FiUser, FiX, FiMenu } from "react-icons/fi";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
@@ -11,7 +11,7 @@ const Navbar = () => {
   const [activeLink, setActiveLink] = useState("Home");
   const [searchText, setSearchText] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showRegister, setShowRegister] = useState(false); 
+  const [showRegister, setShowRegister] = useState(false);
   const { isDarkMode, toggleTheme } = useTheme();
   const menuRef = useRef(null);
 
@@ -25,6 +25,14 @@ const Navbar = () => {
   ];
 
   const clearSearch = () => setSearchText("");
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const current = navItems.find((item) => item.path === location.pathname);
+    if (current) setActiveLink(current.name);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -51,7 +59,7 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="top-row">
           {/* LEFT */}
-          <div className="navbar-left">
+          <div className="navbar-left" onClick={() => navigate("/")}>
             <div className="navbar-logo">
               <img src={logo} alt="Daniyaal Logo" />
             </div>
@@ -70,8 +78,7 @@ const Navbar = () => {
                     to={item.path}
                     className={activeLink === item.name ? "active" : ""}
                     onClick={() => {
-                      setActiveLink(item.name);
-                      setMenuOpen(false);
+                      setMenuOpen(false)
                     }}
                   >
                     {item.name}
