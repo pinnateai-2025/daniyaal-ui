@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import { FiSearch, FiShoppingCart, FiUser, FiX, FiMenu } from "react-icons/fi";
+import { FiHeart, FiSearch, FiShoppingCart, FiUser, FiX, FiMenu } from "react-icons/fi";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { useTheme } from "../../context/ThemeContext";
 import Register from "../Register/Register";
@@ -129,6 +129,11 @@ const Navbar = () => {
                 <MdOutlineDarkMode className="icon" />
               )}
             </button>
+
+            <FiHeart
+              className="icon heart"
+              style={{ color: isDarkMode ? "white" : "black" }}
+            />
 
             <FiShoppingCart
               className="icon cart"
