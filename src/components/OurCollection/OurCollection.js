@@ -215,7 +215,7 @@ const OurCollection = () => {
             {/* Filter Bar */}
             <div className="collection-filter-container">
                 <div className="collection-filter-bar">
-                    <div className="search-box">
+                    <div className="collection-search-box">
                         <FiSearch className="icon" />
                         <input
                             type="text"
