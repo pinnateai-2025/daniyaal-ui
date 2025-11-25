@@ -10,7 +10,7 @@
     left: 0;
     width: 100%;
     z-index: 1100;
-    border-bottom: 1px solid #A1A1AA;
+    border-bottom: 1px solid #71717A;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     transition: background-color 0.3s ease, opacity 0.3s ease;
@@ -177,6 +177,31 @@
     color: #09090B;
 }
 
+.mobile-heart-icon-wrapper {
+    display: none;
+}
+
+.heart-icon-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.wishlist-badge {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: #e7b008;
+    color: #000;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .heart {
     font-size: 40px;
     color: #09090B;
@@ -326,7 +351,7 @@
 
     .navbar-links a {
         font-size: 18px;
-        color: #a1a1aa;
+        color: #71717A;
         text-decoration: none;
         transition: color 0.3s;
     }
@@ -379,7 +404,7 @@
         align-items: center;
         justify-content: flex-end;
         gap: 12px;
-        margin-left: 330px;
+        margin-left: 380px;
     }
 
     .mobile-navbar-search {
@@ -443,7 +468,8 @@
     }
 
     .navbar-right .theme-toggle,
-    .navbar-right .cart {
+    .navbar-right .cart,
+    .navbar-right .heart {
         display: none !important;
     }
 
@@ -456,11 +482,19 @@
         width: 100%;
     }
 
+    .mobile-right-btns {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 20px;
+    }
+
     .mobile-extra-buttons .cart-btn {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 100px;
+        height: 40px;
         background-color: #E7B008;
         color: #000;
         border: none;
@@ -474,6 +508,60 @@
 
     .mobile-extra-buttons .cart-btn:hover {
         background-color: #c39500;
+    }
+
+    .mobile-extra-buttons .heart-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 120px;
+        height: 40px;
+        background-color: transparent;
+        border: 1px solid #e5e7eb;
+        color: var(--text-color);
+        border-radius: 8px;
+        padding: 2px 12px;
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .mobile-extra-buttons .heart-btn:hover {
+        background-color: #f1f1f1;
+    }
+
+    [data-theme="dark"] .heart-btn:hover {
+        background-color: #27272A;
+    }
+
+    .heart-icon-wrapper {
+        display: none;
+    }
+
+    .mobile-heart-icon-wrapper {
+        display: block;
+    }
+
+    .heart-btn {
+        position: relative;
+        display: inline-block;
+    }
+
+    .mobile-wishlist-badge {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: #e7b008;
+        color: #000;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        font-size: 12px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .mobile-extra-buttons .theme-toggle {
@@ -491,13 +579,13 @@
 @media (max-width: 700px) {
     .navbar-right {
         gap: 5px;
-        margin-left: 260px;
+        margin-left: 310px;
     }
 }
 
 @media (max-width: 600px) {
     .navbar-right {
-        margin-left: 160px;
+        margin-left: 210px;
     }
 }
 
@@ -584,23 +672,34 @@
     }
 
     .navbar-right {
-        margin-left: 200px;
+        margin-left: 250px;
     }
 }
 
 @media (max-width: 425px) {
     .navbar-right {
-        margin-left: 140px;
+        margin-left: 180px;
     }
 
     .hamburger {
         margin-left: 0px;
     }
+
+    .mobile-extra-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .mobile-right-btns {
+        width: 100%;
+        justify-content: space-between;
+    }
 }
 
 @media (max-width: 375px) {
     .navbar-right {
-        margin-left: 80px;
+        margin-left: 130px;
     }
 
     .hamburger {
@@ -614,6 +713,6 @@
 
 @media (max-width: 320px) {
     .navbar-right {
-        margin-left: 30px;
+        margin-left: 70px;
     }
 }

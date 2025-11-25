@@ -6,6 +6,7 @@ import { PiCheckBold } from "react-icons/pi";
 import { FiFilter, FiHeart, FiShoppingCart } from "react-icons/fi";
 import "./OurCollection.css";
 import { Link } from "react-router-dom";
+import { useWishlist } from "../../context/WishlistContext";
 
 import perfume1 from "../../assets/perfume1.jfif";
 import perfume2 from "../../assets/perfume2.jfif";
@@ -133,6 +134,7 @@ const OurCollection = () => {
     const [view, setView] = useState("grid");
     const [searchTerm, setSearchTerm] = useState("");
 
+    const { wishlist, toggleWishlist } = useWishlist();
     const filterRef = useRef(null);
     const sortRef = useRef(null);
 
@@ -359,7 +361,18 @@ const OurCollection = () => {
                                     </span>
                                 )}
 
-                                <FiHeart className="ourcollection-heart-icon" />
+                                <FiHeart
+                                    className="ourcollection-heart-icon"
+                                    style={{
+                                        color: wishlist.some((p) => p.id === item.id) ? "#ff0000" : "#fff",
+                                        backgroundColor: wishlist.some((p) => p.id === item.id)
+                                            ? "rgba(255,255,255,0.6)"
+                                            : "rgba(255,255,255,0.3)",
+                                    }}
+                                    onClick={() => {
+                                        toggleWishlist(item);
+                                    }}
+                                />
                                 <FiShoppingCart className="ourcollection-cart-icon" />
                             </div>
 

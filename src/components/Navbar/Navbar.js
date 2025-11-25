@@ -5,9 +5,13 @@ import logo from "../../assets/logo.png";
 import { FiHeart, FiSearch, FiShoppingCart, FiUser, FiX, FiMenu } from "react-icons/fi";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { useTheme } from "../../context/ThemeContext";
+import { useWishlist } from "../../context/WishlistContext";
 import Register from "../Register/Register";
 
 const Navbar = () => {
+
+  const { wishlist } = useWishlist();
+
   const [activeLink, setActiveLink] = useState("Home");
   const [searchText, setSearchText] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -102,10 +106,26 @@ const Navbar = () => {
                 )}
               </button>
 
-              <button className="cart-btn">
-                <FiShoppingCart className="icon cart" />
-                <span>Cart</span>
-              </button>
+              <div className="mobile-right-btns">
+                <button className="heart-btn">
+                  <div className="mobile-heart-icon-wrapper" onClick={() => navigate("/wishlist")}>
+                    <FiHeart
+                      className="icon heart"
+                      style={{ color: isDarkMode ? "white" : "black" }}
+                    />
+
+                    {wishlist.length > 0 && (
+                      <span className="mobile-wishlist-badge">{wishlist.length}</span>
+                    )}
+                  </div>
+                  <span>Wishlist</span>
+                </button>
+
+                <button className="cart-btn">
+                  <FiShoppingCart className="icon cart" />
+                  <span>Cart</span>
+                </button>
+              </div>
             </div>
           </nav>
 
@@ -130,10 +150,16 @@ const Navbar = () => {
               )}
             </button>
 
-            <FiHeart
-              className="icon heart"
-              style={{ color: isDarkMode ? "white" : "black" }}
-            />
+            <div className="heart-icon-wrapper" onClick={() => navigate("/wishlist")}>
+              <FiHeart
+                className="icon heart"
+                style={{ color: isDarkMode ? "white" : "black" }}
+              />
+
+              {wishlist.length > 0 && (
+                <span className="wishlist-badge">{wishlist.length}</span>
+              )}
+            </div>
 
             <FiShoppingCart
               className="icon cart"
@@ -153,7 +179,7 @@ const Navbar = () => {
           >
             {menuOpen ? <FiX size={28} /> : <FiMenu size={28} />}
           </button>
-        </div>
+        </div >
 
         <div className="bottom-row">
           <div className="mobile-navbar-search">
@@ -167,16 +193,18 @@ const Navbar = () => {
             {searchText && <FiX className="icon clear-icon" onClick={clearSearch} />}
           </div>
         </div>
-      </nav>
+      </nav >
 
       {/* REGISTER MODAL */}
-      {showRegister && (
-        <div className="modal-overlay" onClick={() => setShowRegister(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <Register onClose={() => setShowRegister(false)} />
+      {
+        showRegister && (
+          <div className="modal-overlay" onClick={() => setShowRegister(false)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <Register onClose={() => setShowRegister(false)} />
+            </div>
           </div>
-        </div>
-      )}
+        )
+      }
     </>
   );
 };

@@ -2,6 +2,8 @@ import "./FragranceCollection.css";
 import { FiHeart } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
 import { FiShoppingCart, FiArrowRight } from "react-icons/fi";
+import { useWishlist } from "../../context/WishlistContext";
+
 import perfume1 from "../../assets/perfume1.jfif";
 import perfume2 from "../../assets/perfume2.jfif";
 import perfume3 from "../../assets/perfume3.jpg";
@@ -63,6 +65,9 @@ const fragrances = [
 ];
 
 const FragranceCollection = () => {
+
+    const { wishlist, toggleWishlist } = useWishlist();
+
     return (
         <section className="fragrance-collection">
             <div className="fragrance-title">
@@ -81,7 +86,18 @@ const FragranceCollection = () => {
                         <div className="card-image">
                             <img src={item.img} alt={item.name} />
                             <span className="discount-badge">Save {item.discount}</span>
-                            <FiHeart className="heart-icon" />
+                            <FiHeart
+                                className="ourcollection-heart-icon"
+                                style={{
+                                    color: wishlist.some((p) => p.id === item.id) ? "#ff0000" : "#fff",
+                                    backgroundColor: wishlist.some((p) => p.id === item.id)
+                                        ? "rgba(255,255,255,0.6)"
+                                        : "rgba(255,255,255,0.3)",
+                                }}
+                                onClick={() => {
+                                    toggleWishlist(item);
+                                }}
+                            />
                             <FiShoppingCart className="cart-icon" />
                         </div>
 

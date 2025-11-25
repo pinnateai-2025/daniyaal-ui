@@ -7,23 +7,28 @@ import OurStory from "./pages/OurStory";
 import Contact from "./pages/Contact";
 import Gifts from "./pages/Gifts";
 import Product from "./pages/Product";
+import { WishlistProvider } from "./context/WishlistContext";
+import Wishlist from "./pages/Wishlist";
 
 function App() {
 
-  if (performance.navigation.type === 1) {
-    window.location.href = "/";
-  }
+  // if (performance.navigation.type === 1) {
+  //   window.location.href = "/";
+  // }
 
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/products" element={<Products />} />
-      <Route path="/product/:id" element={<Product />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/our-story" element={<OurStory />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/gifts" element={<Gifts />} />
-    </Routes>
+    <WishlistProvider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/product/:id" element={<Product />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/our-story" element={<OurStory />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/gifts" element={<Gifts />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+      </Routes>
+    </WishlistProvider>
   );
 }
 
