@@ -14,9 +14,9 @@ import Cart from "./pages/Cart";
 
 function App() {
 
-  // if (performance.navigation.type === 1) {
-  //   window.location.href = "/";
-  // }
+  if (performance.navigation.type === 1) {
+    window.location.href = "/";
+  }
 
   return (
     <CartProvider>

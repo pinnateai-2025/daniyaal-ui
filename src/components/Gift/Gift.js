@@ -10,8 +10,12 @@ import corporate from "../../assets/corporate.png";
 import gift1 from "../../assets/gift1.jfif";
 import img1 from "../../assets/img1.jfif";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
+import { useNavigate, Link } from "react-router-dom";
 
 const Gift = () => {
+
+    const navigate = useNavigate();
+
     return (
         <div className="gifts">
             <div className="gifts-title">
@@ -200,8 +204,8 @@ const Gift = () => {
                     <p>Browse our complete collection or contact us for personalized recommendations.</p>
                 </div>
                 <div className="perfect-gift-btns">
-                    <button className="shop-all">Shop All Products</button>
-                    <button className="gift-advice">Get Gift Advice</button>
+                    <button className="shop-all" onClick={() => navigate("/products")}>Shop All Products</button>
+                    <button className="gift-advice" onClick={() => navigate("/contact")}>Get Gift Advice</button>
                 </div>
             </div>
 

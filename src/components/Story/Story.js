@@ -1,9 +1,13 @@
 import "./Story.css";
 import { FiArrowRight } from "react-icons/fi";
+import { useNavigate, Link } from "react-router-dom";
 import perfumeImg1 from "../../assets/perfume1.jfif"; 
 import perfumeImg2 from "../../assets/perfume4.jpg"; 
 
 const OurStory = () => {
+
+     const navigate = useNavigate();
+
     return (
         <section className="ourstory-section">
             <div className="ourstory-container">
@@ -22,7 +26,7 @@ const OurStory = () => {
                         world, creating unique compositions that capture emotions, memories,
                         and dreams in every drop.
                     </p>
-                    <button className="ourstory-btn">
+                    <button className="ourstory-btn" onClick={() => navigate("/our-story")}>
                         Discover Our Story <FiArrowRight className="ourstory-icon" />
                     </button>
                 </div>

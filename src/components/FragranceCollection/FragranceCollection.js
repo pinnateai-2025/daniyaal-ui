@@ -4,6 +4,7 @@ import { FaStar } from "react-icons/fa";
 import { FiShoppingCart, FiArrowRight } from "react-icons/fi";
 import { useWishlist } from "../../context/WishlistContext";
 import { useCart } from "../../context/CartContext";
+import { useNavigate, Link } from "react-router-dom";
 
 import perfume1 from "../../assets/perfume1.jfif";
 import perfume2 from "../../assets/perfume2.jfif";
@@ -69,6 +70,7 @@ const FragranceCollection = () => {
 
     const { wishlist, toggleWishlist } = useWishlist();
     const { addToCart } = useCart();
+    const navigate = useNavigate();
 
     return (
         <section className="fragrance-collection">
@@ -120,7 +122,16 @@ const FragranceCollection = () => {
                                 </div>
                             </div>
 
-                            <h3>{item.name}</h3>
+                            <h3>
+                                <Link
+                                    to={`/product/${item.id}`}
+                                    state={{ product: item, allProducts: fragrances }}
+                                    className="h3-link"
+                                >
+                                    {item.name}
+                                </Link>
+                            </h3>
+                            
                             <p className="desc">{item.desc}</p>
 
                             <div className="price-row">
@@ -135,7 +146,7 @@ const FragranceCollection = () => {
                 ))}
             </div>
             <div className="fragrance-button">
-                <button className="products-btn">
+                <button className="products-btn" onClick={() => navigate("/products")}>
                     View All Products <FiArrowRight className="products-icon" />
                 </button>
             </div>
