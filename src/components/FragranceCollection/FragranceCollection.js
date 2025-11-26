@@ -3,6 +3,7 @@ import { FiHeart } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
 import { FiShoppingCart, FiArrowRight } from "react-icons/fi";
 import { useWishlist } from "../../context/WishlistContext";
+import { useCart } from "../../context/CartContext";
 
 import perfume1 from "../../assets/perfume1.jfif";
 import perfume2 from "../../assets/perfume2.jfif";
@@ -67,6 +68,7 @@ const fragrances = [
 const FragranceCollection = () => {
 
     const { wishlist, toggleWishlist } = useWishlist();
+    const { addToCart } = useCart();
 
     return (
         <section className="fragrance-collection">
@@ -98,7 +100,12 @@ const FragranceCollection = () => {
                                     toggleWishlist(item);
                                 }}
                             />
-                            <FiShoppingCart className="cart-icon" />
+                            <FiShoppingCart
+                                className="cart-icon"
+                                onClick={() => {
+                                    addToCart(item);
+                                }}
+                            />
                         </div>
 
                         <div className="card-content">

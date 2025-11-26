@@ -1,12 +1,11 @@
 .wishlist-container,
 .empty-wishlist-container {
-    padding: 120px 80px 60px 80px;
+    padding: 80px 80px 60px 80px;
     background-color: var(--color-bg);
 }
 
 .empty-wishlist-container {
     text-align: center;
-    margin-top: 50px;
 }
 
 .empty-wishlist-container img {
@@ -51,6 +50,10 @@
 
 .empty-wishlist-container button:hover .arrow-icon {
     transform: translateX(5px);
+}
+
+.wishlist-info {
+    margin-top: 50px;
 }
 
 .wishlist-header {

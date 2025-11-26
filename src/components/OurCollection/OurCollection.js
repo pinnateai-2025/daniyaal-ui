@@ -7,6 +7,7 @@ import { FiFilter, FiHeart, FiShoppingCart } from "react-icons/fi";
 import "./OurCollection.css";
 import { Link } from "react-router-dom";
 import { useWishlist } from "../../context/WishlistContext";
+import { useCart } from "../../context/CartContext";
 
 import perfume1 from "../../assets/perfume1.jfif";
 import perfume2 from "../../assets/perfume2.jfif";
@@ -135,6 +136,7 @@ const OurCollection = () => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const { wishlist, toggleWishlist } = useWishlist();
+    const { addToCart } = useCart();
     const filterRef = useRef(null);
     const sortRef = useRef(null);
 
@@ -373,7 +375,13 @@ const OurCollection = () => {
                                         toggleWishlist(item);
                                     }}
                                 />
-                                <FiShoppingCart className="ourcollection-cart-icon" />
+
+                                <FiShoppingCart
+                                    className="ourcollection-cart-icon"
+                                    onClick={() => {
+                                        addToCart(item);
+                                    }}
+                                />
                             </div>
 
                             <div className="ourcollection-card-content">

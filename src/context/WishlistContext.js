@@ -21,7 +21,7 @@ export const WishlistProvider = ({ children }) => {
         // remove if already in wishlist
         return prev.filter((item) => item.id !== product.id);
       } else {
-        // add new product
+        // add new producta
         return [...prev, product];
       }
     });

@@ -6,11 +6,13 @@ import { FiHeart, FiSearch, FiShoppingCart, FiUser, FiX, FiMenu } from "react-ic
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { useTheme } from "../../context/ThemeContext";
 import { useWishlist } from "../../context/WishlistContext";
+import { useCart } from "../../context/CartContext";
 import Register from "../Register/Register";
 
 const Navbar = () => {
 
   const { wishlist } = useWishlist();
+  const { cart } = useCart();
 
   const [activeLink, setActiveLink] = useState("Home");
   const [searchText, setSearchText] = useState("");
@@ -121,8 +123,16 @@ const Navbar = () => {
                   <span>Wishlist</span>
                 </button>
 
-                <button className="cart-btn">
-                  <FiShoppingCart className="icon cart" />
+                <button className="cart-btn" onClick={() => navigate("/cart")}>
+                  <div className="mobile-cart-icon-wrapper" onClick={() => navigate("/cart")}>
+                    <FiShoppingCart
+                      className="icon cart"
+                    />
+
+                    {cart.length > 0 && (
+                      <span className="mobile-cart-badge">{cart.length}</span>
+                    )}
+                  </div>
                   <span>Cart</span>
                 </button>
               </div>
@@ -161,10 +171,16 @@ const Navbar = () => {
               )}
             </div>
 
-            <FiShoppingCart
-              className="icon cart"
-              style={{ color: isDarkMode ? "white" : "black" }}
-            />
+            <div className="cart-icon-wrapper" onClick={() => navigate("/cart")}>
+              <FiShoppingCart
+                className="icon cart"
+                style={{ color: isDarkMode ? "white" : "black" }}
+              />
+
+              {cart.length > 0 && (
+                <span className="cart-badge">{cart.length}</span>
+              )}
+            </div>
 
             {/* LOGIN BUTTON OPENS MODAL */}
             <button className="login-btn" onClick={() => setShowRegister(true)}>
