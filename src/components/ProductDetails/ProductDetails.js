@@ -10,8 +10,13 @@ import authentic from "../../assets/authentic.png";
 import quality from "../../assets/quality.png";
 import returns from "../../assets/return.png";
 import shipping from "../../assets/shipping.png";
+import { useWishlist } from "../../context/WishlistContext";
+import { useCart } from "../../context/CartContext";
 
 const ProductDetails = () => {
+
+    const { wishlist, toggleWishlist } = useWishlist();
+    const { addToCart } = useCart();
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -109,8 +114,22 @@ const ProductDetails = () => {
                     </div>
 
                     <div className="product-cart-row">
-                        <button className="product-add-cart"><FiShoppingCart /> Add to Cart</button>
-                        <button className="product-heart-icon"><FiHeart /></button>
+                        <button
+                            className="product-add-cart"
+                            onClick={() => {
+                                addToCart(product);
+                            }}
+                        >
+                            <FiShoppingCart /> Add to Cart
+                        </button>
+                        <button
+                            className={`product-heart-icon ${wishlist.some((p) => p.id === product.id) ? "active" : ""
+                                }`}
+                            onClick={() => toggleWishlist(product)}
+                        >
+                            <FiHeart />
+                        </button>
+
                         <button className="product-share-btn"><FiShare2 /></button>
                     </div>
 

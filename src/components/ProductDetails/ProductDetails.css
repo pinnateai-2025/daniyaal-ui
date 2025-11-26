@@ -257,6 +257,10 @@
     color: var(--text-color);
 }
 
+.product-heart-icon.active {
+    color: #ff0000 !important;
+}
+
 [data-theme="dark"] .icon.cart:hover {
     background-color: #27272A;
 }
@@ -267,7 +271,7 @@
 }
 
 [data-theme="dark"] .product-heart-icon:hover,
-[data-theme="dark"] .product--share-btn:hover {
+[data-theme="dark"] .product-share-btn:hover {
     background-color: #27272A;
 }
 
