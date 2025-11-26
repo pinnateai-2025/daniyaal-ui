@@ -459,7 +459,6 @@
 }
 
 @media (max-width: 1024px) {
-
     .cart-container,
     .empty-cart-container {
         padding: 40px 20px;
@@ -490,6 +489,24 @@
 }
 
 @media (max-width: 500px) {
+     .empty-cart-container {
+        padding: 20px;
+    }
+
+    .empty-cart-container img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .empty-cart-container h2 {
+        margin: 10px 0;
+        font-size: 28px;
+    }
+
+    .empty-cart-container p {
+        font-size: 17px;
+    }
+
     .cart-header h2 {
         font-size: 28px;
     }

@@ -3,32 +3,39 @@ import { createContext, useContext, useState, useEffect } from "react";
 const WishlistContext = createContext();
 
 export const WishlistProvider = ({ children }) => {
-  // Initialize wishlist directly from localStorage
+  // Load wishlist from localStorage
   const [wishlist, setWishlist] = useState(() => {
     const storedWishlist = localStorage.getItem("wishlist");
     return storedWishlist ? JSON.parse(storedWishlist) : [];
   });
 
-  // Save wishlist to localStorage whenever it changes
+  // Save to localStorage
   useEffect(() => {
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
   }, [wishlist]);
 
+  // Add/remove single product
   const toggleWishlist = (product) => {
     setWishlist((prev) => {
       const exists = prev.find((item) => item.id === product.id);
+
       if (exists) {
-        // remove if already in wishlist
         return prev.filter((item) => item.id !== product.id);
       } else {
-        // add new producta
         return [...prev, product];
       }
     });
   };
 
+  // CLEAR ALL WISHLIST ITEMS
+  const clearWishlist = () => {
+    setWishlist([]);
+  };
+
   return (
-    <WishlistContext.Provider value={{ wishlist, toggleWishlist }}>
+    <WishlistContext.Provider
+      value={{ wishlist, toggleWishlist, clearWishlist }}
+    >
       {children}
     </WishlistContext.Provider>
   );

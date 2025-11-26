@@ -196,3 +196,128 @@
 [data-theme="dark"] .wishlist-size {
     background-color: #27272A;
 }
+
+.wishlist-bottom-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.wishlist-clear-btn {
+    width: 120px;
+    padding: 6px 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.wishlist-clear-btn:hover {
+    background-color: #f1f1f1;
+}
+
+[data-theme="dark"] .wishlist-clear-btn:hover {
+    background-color: #27272A;
+}
+
+.wishlist-shopping-btn {
+    width: 180px;
+    padding: 6px 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.wishlist-shopping-btn:hover {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+[data-theme="dark"] .wishlist-shopping-btn:hover {
+    background-color: #27272A;
+}
+
+@media (max-width: 1024px) {
+
+    .wishlist-container,
+    .empty-wishlist-container {
+        padding: 40px 20px;
+    }
+
+    .wishlist-info {
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 768px) {
+    .wishlist-header h2 {
+        font-size: 32px;
+    }
+
+    .wishlist-header p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .empty-wishlist-container {
+        padding: 20px;
+    }
+
+    .empty-wishlist-container img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .empty-wishlist-container h2 {
+        margin: 10px 0;
+        font-size: 28px;
+    }
+
+    .empty-wishlist-container p {
+        font-size: 17px;
+    }
+
+    .wishlist-header h2 {
+        font-size: 28px;
+    }
+
+    .wishlist-header p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 425px) {
+    .wishlist-header {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 375px) {
+    .wishlist-header h2 {
+        font-size: 24px;
+    }
+
+    .wishlist-header p {
+        font-size: 14px;
+    }
+
+    .wishlist-clear-btn {
+        width: 100px;
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+
+    .wishlist-shopping-btn {
+        width: 160px;
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+}

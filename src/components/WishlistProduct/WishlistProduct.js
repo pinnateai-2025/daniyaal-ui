@@ -7,7 +7,7 @@ import Wishlist from "../../assets/wishlist.png";
 
 const WishlistProduct = () => {
 
-    const { wishlist, toggleWishlist } = useWishlist();
+    const { wishlist, toggleWishlist, clearWishlist } = useWishlist();
     const navigate = useNavigate();
 
     return (
@@ -77,6 +77,21 @@ const WishlistProduct = () => {
                     </div>
                 </div>
             )}
+
+            <div className="wishlist-bottom-btn">
+                <button
+                    className="wishlist-clear-btn"
+                    onClick={clearWishlist}
+                >
+                    Clear Wishlist
+                </button>
+                <button
+                    className="wishlist-shopping-btn"
+                    onClick={() => navigate("/products")}
+                >
+                    Continue Shopping
+                </button>
+            </div>
         </div>
     )
 }
