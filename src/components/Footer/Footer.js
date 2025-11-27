@@ -5,8 +5,12 @@ import email from "../../assets/email.png";
 import call from "../../assets/call.png";
 import location from "../../assets/location.png";
 import StayInLoop from "../StayInLoop/StayInLoop";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+
+  const navigate = useNavigate();
+
   return (
     <footer className="footer">
       <div className="footer-top">
@@ -32,11 +36,11 @@ const Footer = () => {
         <div className="footer-section links">
           <h3>Quick Links</h3>
           <ul>
-            <li>About Us</li>
-            <li>Our Story</li>
-            <li>All Products</li>
-            <li>Gift Sets</li>
-            <li>Contact</li>
+            <li onClick={() => navigate("/about")}>About Us</li>
+            <li onClick={() => navigate("/our-story")}>Our Story</li>
+            <li onClick={() => navigate("/products")}>All Products</li>
+            <li onClick={() => navigate("/gifts")}>Gift Sets</li>
+            <li onClick={() => navigate("/contact")}>Contact</li>
           </ul>
         </div>
 
