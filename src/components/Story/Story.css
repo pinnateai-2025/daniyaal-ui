@@ -84,6 +84,10 @@
 }
 
 @media (max-width: 1024px) {
+    .ourstory-section {
+        padding: 40px 20px;
+    }
+
     .ourstory-title {
         font-size: 54px;
     }
@@ -118,10 +122,6 @@
 }
 
 @media (max-width: 768px) {
-    .ourstory-section {
-        padding: 40px 20px;
-    }
-
     .ourstory-container {
         flex-direction: column;
         text-align: left;

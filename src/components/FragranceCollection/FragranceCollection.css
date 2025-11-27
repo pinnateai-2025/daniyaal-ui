@@ -263,16 +263,16 @@
 }
 
 @media (max-width: 1024px) {
+    .fragrance-collection {
+        padding: 40px 20px;
+    }
+
     .fragrance-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .fragrance-collection {
-        padding: 40px 20px;
-    }
-
     .fragrance-title h1 {
         font-size: 36px;
     }

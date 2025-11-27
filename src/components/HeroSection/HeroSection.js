@@ -1,7 +1,6 @@
 import "./HeroSection.css";
 import { useNavigate } from "react-router-dom";
 import { FiArrowRight, FiPlay } from "react-icons/fi";
-import heroBg from "../../assets/hero-bg.jfif";
 import heroVideo from "../../assets/hero-video.mp4";
 
 const HeroSection = () => {
@@ -10,9 +9,6 @@ const HeroSection = () => {
 
     return (
         <section className="hero-section">
-            <div className="hero-image">
-                <img src={heroBg} alt="" />
-            </div>
             <video className="hero-video" autoPlay loop muted playsInline>
                 <source src={heroVideo} type="video/mp4" />
             </video>

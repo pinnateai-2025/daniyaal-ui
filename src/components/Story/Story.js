@@ -1,6 +1,6 @@
 import "./Story.css";
 import { FiArrowRight } from "react-icons/fi";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import perfumeImg1 from "../../assets/perfume1.jfif"; 
 import perfumeImg2 from "../../assets/perfume4.jpg"; 
 
