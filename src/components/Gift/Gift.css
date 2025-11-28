@@ -29,7 +29,7 @@
 }
 
 .gifts-title h1 {
-    font-size: 60px;
+    font-size: 50px;
     font-weight: bolder;
     letter-spacing: 1px;
     margin-bottom: 15px;
@@ -510,6 +510,14 @@
 }
 
 @media (max-width: 1024px) {
+    .gifts-title h1 {
+        font-size: 40px;
+    }
+
+    .gifts-title p {
+        font-size: 20px;
+    }
+
     .gifts {
         padding: 40px 20px;
     }
@@ -546,13 +554,8 @@
     }
 
     .gifts-title h1 {
-        font-size: 50px;
+        font-size: 38px;
     }
-
-    .gifts-title p {
-        font-size: 19px;
-    }
-
 
     .curated-collection-title h3 {
         margin-bottom: 30px;
@@ -601,9 +604,9 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
     .gifts-title h1 {
-        font-size: 45px;
+        font-size: 32px;
     }
 
     .gifts-title p br {
@@ -611,17 +614,17 @@
     }
 
     .gifts-title p {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
 @media (max-width: 425px) {
     .gifts-title h1 {
-        font-size: 40px;
+        font-size: 30px;
     }
 
     .gifts-title p {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .gift-img-box {
@@ -749,11 +752,11 @@
     }
 
     .gifts-title h1 {
-        font-size: 36px;
+        font-size: 26px;
     }
 
     .gifts-title p {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .curated-collection-title h3 {
@@ -779,11 +782,7 @@
 
 @media (max-width: 320px) {
     .gifts-title h1 {
-        font-size: 32px;
-    }
-
-    .gifts-title p {
-        font-size: 15px;
+        font-size: 24px;
     }
 
     .curated-collection-title h3 {

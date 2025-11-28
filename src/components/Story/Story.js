@@ -12,9 +12,9 @@ const OurStory = () => {
         <section className="ourstory-section">
             <div className="ourstory-container">
                 <div className="ourstory-text">
-                    <h2 className="ourstory-title">
+                    <h1 className="ourstory-title">
                         The Art of <span>Perfumery</span>
-                    </h2>
+                    </h1>
                     <p className="ourstory-desc">
                         For generations, Daniyaal Perfumery has been at the forefront of
                         luxury fragrance creation, blending traditional attar-making

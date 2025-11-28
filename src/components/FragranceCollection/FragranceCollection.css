@@ -291,6 +291,10 @@
         padding: 10px 20px;
     }
 
+    .fragrance-title h1 {
+        font-size: 32px;
+    }
+
     .fragrance-grid {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -300,9 +304,15 @@
     }
 }
 
+@media (max-width: 425px) {
+    .fragrance-title h1 {
+        font-size: 30px;
+    }
+}
+
 @media (max-width: 375px) {
     .fragrance-title h1 {
-        font-size: 34px;
+        font-size: 26px;
     }
 
     .fragrance-title p {
@@ -312,6 +322,6 @@
 
 @media (max-width: 320px) {
     .fragrance-title h1 {
-        font-size: 29px;
+        font-size: 24px;
     }
 }

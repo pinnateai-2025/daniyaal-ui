@@ -9,7 +9,7 @@
 }
 
 .contact-title h1 {
-    font-size: 60px;
+    font-size: 50px;
     font-weight: bolder;
     letter-spacing: 1px;
     margin-bottom: 15px;
@@ -389,6 +389,14 @@ textarea::placeholder {
     .contact-us {
         padding: 40px 20px;
     }
+
+    .contact-title h1 {
+        font-size: 40px;
+    }
+
+    .contact-title p {
+        font-size: 20px;
+    }
 }
 
 @media (max-width: 900px) {
@@ -409,11 +417,11 @@ textarea::placeholder {
 
 @media (max-width: 768px) {
     .contact-title h1 {
-        font-size: 50px;
+        font-size: 38px;
     }
 
     .contact-title p {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .quick-help-card {
@@ -434,11 +442,11 @@ textarea::placeholder {
 
 @media (max-width: 500px) {
     .contact-title h1 {
-        font-size: 45px;
+        font-size: 32px;
     }
 
     .contact-title p {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .contact-title p br {
@@ -491,11 +499,7 @@ textarea::placeholder {
 
 @media (max-width: 425px) {
     .contact-title h1 {
-        font-size: 42px;
-    }
-
-    .contact-title p {
-        font-size: 16px;
+        font-size: 30px;
     }
 
     .contact-form {
@@ -509,6 +513,14 @@ textarea::placeholder {
 }
 
 @media (max-width: 375px) {
+    .contact-title h1 {
+        font-size: 26px;
+    }
+
+    .contact-title p {
+        font-size: 15px;
+    }
+
     .info-card p {
         font-size: 14px;
     }
@@ -528,5 +540,11 @@ textarea::placeholder {
 
     .faq-item p {
         font-size: 14px;
+    }
+}
+
+@media (max-width: 320px) {
+    .contact-title h1 {
+        font-size: 24px;
     }
 }

@@ -697,13 +697,13 @@
     }
 
     .navbar-right {
-        margin-left: 250px;
+        margin-left: 230px;
     }
 }
 
 @media (max-width: 425px) {
     .navbar-right {
-        margin-left: 180px;
+        margin-left: 160px;
     }
 
     .hamburger {
@@ -724,7 +724,7 @@
 
 @media (max-width: 375px) {
     .navbar-right {
-        margin-left: 130px;
+        margin-left: 110px;
     }
 
     .hamburger {
@@ -738,6 +738,6 @@
 
 @media (max-width: 320px) {
     .navbar-right {
-        margin-left: 70px;
+        margin-left: 50px;
     }
 }

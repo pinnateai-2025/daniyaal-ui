@@ -148,7 +148,7 @@
 
 @media (max-width: 500px) {
     .ourstory-title {
-        font-size: 46px;
+        font-size: 32px;
     }
 
     .ourstory-desc {
@@ -162,7 +162,7 @@
 
 @media (max-width: 425px) {
     .ourstory-title {
-        font-size: 41px;
+        font-size: 30px;
     }
 
     .ourstory-desc {
@@ -176,7 +176,7 @@
 
 @media (max-width: 375px) {
     .ourstory-title {
-        font-size: 36px;
+        font-size: 26px;
     }
 
     .ourstory-desc {
@@ -188,9 +188,9 @@
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 320px) {
     .ourstory-title {
-        font-size: 31px;
+        font-size: 24px;
     }
 
     .ourstory-desc {

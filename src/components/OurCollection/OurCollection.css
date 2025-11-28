@@ -656,6 +656,14 @@
 }
 
 @media (max-width: 500px) {
+    .ourcollection-title h1 {
+        font-size: 32px;
+    }
+
+    .ourcollection-title p {
+        font-size: 16px;
+    }
+
     .ourcollection-fragrance-card.list {
         flex-direction: row;
         align-items: flex-start;
@@ -749,6 +757,10 @@
 }
 
 @media (max-width: 425px) {
+    .ourcollection-title h1 {
+        font-size: 30px;
+    }
+
     .view-toggle {
         display: none !important;
     }
@@ -810,16 +822,6 @@
     .product-count {
         margin-top: 0;
     }
-}
-
-@media (max-width: 375px) {
-    .ourcollection-title h1 {
-        font-size: 44px;
-    }
-
-    .ourcollection-title p {
-        font-size: 18px;
-    }
 
     .dropdowns {
         display: grid;
@@ -832,13 +834,19 @@
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
     .ourcollection-title h1 {
-        font-size: 40px;
+        font-size: 26px;
     }
 
     .ourcollection-title p {
-        font-size: 17px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 320px) {
+    .ourcollection-title h1 {
+        font-size: 24px;
     }
 
     .collection-search-box {

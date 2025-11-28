@@ -9,7 +9,7 @@
 }
 
 .ourjourney-title h1 {
-    font-size: 60px;
+    font-size: 50px;
     font-weight: bolder;
     letter-spacing: 1px;
     margin-bottom: 15px;
@@ -406,11 +406,11 @@
 
 @media (max-width: 768px) {
     .ourjourney-title h1 {
-        font-size: 50px;
+        font-size: 40px;
     }
 
     .ourjourney-title p {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .journey-beginning-desc .the-beginning {
@@ -551,11 +551,7 @@
 
 @media (max-width: 600px) {
     .ourjourney-title h1 {
-        font-size: 45px;
-    }
-
-    .ourjourney-title p {
-        font-size: 18px;
+        font-size: 38px;
     }
 
     .ourjourney-title p br {
@@ -612,6 +608,14 @@
 }
 
 @media (max-width: 500px) {
+    .ourjourney-title h1 {
+        font-size: 32px;
+    }
+
+    .ourjourney-title p {
+        font-size: 16px;
+    }
+
     .timeline-card {
         height: 180px;
     }
@@ -628,12 +632,11 @@
 
 @media (max-width: 425px) {
     .ourjourney-title h1 {
-        font-size: 40px;
-        margin-bottom: 0px;
+        font-size: 30px;
+        margin-bottom: 10px;
     }
 
     .ourjourney-title p {
-        font-size: 16px;
         line-height: 1.2;
     }
 
@@ -754,6 +757,14 @@
 }
 
 @media (max-width: 375px) {
+    .ourjourney-title h1 {
+        font-size: 26px;
+    }
+
+    .ourjourney-title p {
+        font-size: 15px;
+    }
+
     .timeline-heading {
         margin-bottom: 20px;
     }
@@ -789,6 +800,10 @@
 }
 
 @media (max-width: 320px) {
+    .ourjourney-title h1 {
+        font-size: 24px;
+    }
+
     .ourjourney-title p {
         font-size: 14px;
         line-height: 1.1;
