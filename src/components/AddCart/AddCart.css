@@ -48,7 +48,7 @@
     background-color: #C39500;
 }
 
-.empty-cart-container button:hover .arrow-icon {
+.empty-cart-container button:hover .cart-arrow-icon {
     transform: translateX(5px);
 }
 

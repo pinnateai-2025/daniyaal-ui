@@ -78,20 +78,23 @@ const WishlistProduct = () => {
                 </div>
             )}
 
-            <div className="wishlist-bottom-btn">
-                <button
-                    className="wishlist-clear-btn"
-                    onClick={clearWishlist}
-                >
-                    Clear Wishlist
-                </button>
-                <button
-                    className="wishlist-shopping-btn"
-                    onClick={() => navigate("/products")}
-                >
-                    Continue Shopping
-                </button>
-            </div>
+            {wishlist.length > 0 && (
+                <div className="wishlist-bottom-btn">
+                    <button
+                        className="wishlist-clear-btn"
+                        onClick={clearWishlist}
+                    >
+                        Clear Wishlist
+                    </button>
+
+                    <button
+                        className="wishlist-shopping-btn"
+                        onClick={() => navigate("/products")}
+                    >
+                        Continue Shopping
+                    </button>
+                </div>
+            )}
         </div>
     )
 }
