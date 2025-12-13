@@ -8,6 +8,8 @@
     background-color: #27272A;
 }
 
+/* -------------------- TOP SECTION -------------------- */
+
 .footer-top {
     display: flex;
     flex-wrap: wrap;
@@ -20,6 +22,8 @@
     min-width: 220px;
     margin: 20px;
 }
+
+/* -------------------- LOGO -------------------- */
 
 .footer-logo {
     display: flex;
@@ -51,6 +55,8 @@
     color: #71717A;
 }
 
+/* -------------------- SOCIAL ICONS -------------------- */
+
 .footer-socials {
     display: flex;
     gap: 15px;
@@ -59,9 +65,15 @@
     cursor: pointer;
 }
 
+.footer-socials svg {
+    transition: color 0.3s ease;
+}
+
 .footer-socials svg:hover {
     color: #e7b008;
 }
+
+/* -------------------- SECTION HEADINGS -------------------- */
 
 .footer-section h3 {
     font-size: 16px;
@@ -69,6 +81,8 @@
     font-weight: 700;
     color: var(--text-color);
 }
+
+/* -------------------- LISTS -------------------- */
 
 .footer-section ul {
     list-style: none;
@@ -82,11 +96,14 @@
     font-weight: 500;
 }
 
+/* Hover for navigation links */
 .footer-section.links ul li:hover,
 .footer-section.care ul li:hover {
     color: #e7b008;
     cursor: pointer;
 }
+
+/* -------------------- CONTACT SECTION -------------------- */
 
 .footer-section.contact ul li {
     display: flex;
@@ -101,9 +118,18 @@
     height: 18px;
 }
 
+.footer-section.contact ul li:hover {
+    color: #e7b008;
+    cursor: pointer;
+}
+
+/* -------------------- NEWSLETTER -------------------- */
+
 .footer-newsletter {
     text-align: center;
 }
+
+/* -------------------- FOOTER BOTTOM -------------------- */
 
 .footer-bottom {
     text-align: center;
@@ -126,12 +152,27 @@
     color: #e7b008;
 }
 
+/* -------------------- PRIVACY POLICY & TERMS LINKS -------------------- */
+
+.footer-link {
+    cursor: pointer;
+    color: #e7b008;
+    font-weight: 500;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+    color: #c69506;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+
 @media (max-width: 1024px) {
     .footer-top {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 30px 50px;
-            padding: 40px 30px 20px;
+        padding: 40px 30px 20px;
     }
 
     .footer-section {
@@ -212,6 +253,7 @@
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 30px 50px;
+        padding: 30px 20px 10px;
     }
 
     .footer-section ul li {

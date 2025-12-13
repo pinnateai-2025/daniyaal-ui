@@ -7,13 +7,14 @@ import OurStory from "./pages/OurStory";
 import Contact from "./pages/Contact";
 import Gifts from "./pages/Gifts";
 import Product from "./pages/Product";
-import { WishlistProvider } from "./context/WishlistContext";
-import { CartProvider } from "./context/CartContext";
 import Wishlist from "./pages/Wishlist";
 import Cart from "./pages/Cart";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import { WishlistProvider } from "./context/WishlistContext";
+import { CartProvider } from "./context/CartContext";
+import ScrollRestorationFix from "./components/ScrollRestorationFix";
 
 function App() {
-
   if (performance.navigation.type === 1) {
     window.location.href = "/";
   }
@@ -21,6 +22,8 @@ function App() {
   return (
     <CartProvider>
       <WishlistProvider>
+        <ScrollRestorationFix />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
@@ -31,6 +34,7 @@ function App() {
           <Route path="/gifts" element={<Gifts />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </WishlistProvider>
     </CartProvider>
