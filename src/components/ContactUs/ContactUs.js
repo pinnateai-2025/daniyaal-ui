@@ -2,10 +2,10 @@ import { useState, useRef, useEffect } from "react";
 import "./ContactUs.css";
 import { FaChevronDown } from "react-icons/fa";
 import { FaRegPaperPlane } from "react-icons/fa";
-import location from "../../assets/location.png";
+// import location from "../../assets/location.png";
 import call from "../../assets/call.png";
 import email from "../../assets/email.png";
-import clock from "../../assets/clock.png";
+// import clock from "../../assets/clock.png";
 import chat from "../../assets/chat.png";
 import phone from "../../assets/phone.png";
 import order from "../../assets/order.png";
@@ -55,20 +55,20 @@ const ContactUs = () => {
 
                 {/* LEFT SIDE CONTACT INFO */}
                 <div className="contact-info">
-                    <div className="info-card">
-                        <div className="info-header">
-                            <div className="icon-circle">
-                                <img src={location} alt="location" />
+                        {/* <div className="info-card">
+                            <div className="info-header">
+                                <div className="icon-circle">
+                                    <img src={location} alt="location" />
+                                </div>
+                                <h3>Visit Our Store</h3>
                             </div>
-                            <h3>Visit Our Store</h3>
-                        </div>
 
-                        <p>
-                            123 Fragrance Street<br />
-                            Kannauj, Uttar Pradesh<br />
-                            India 209725
-                        </p>
-                    </div>
+                            <p>
+                                123 Fragrance Street<br />
+                                Kannauj, Uttar Pradesh<br />
+                                India 209725
+                            </p>
+                        </div> */}
 
                     <div className="info-card">
                         <div className="info-header">
@@ -79,9 +79,8 @@ const ContactUs = () => {
                         </div>
 
                         <p>
-                            +91 98765 43210<br />
-                            +91 98765 43211<br />
-                            Mon-Sat: 9AM-8PM
+                            +91 7542944441<br />
+                            Mon-Fri: 9AM-8PM
                         </p>
                     </div>
 
@@ -94,36 +93,9 @@ const ContactUs = () => {
                         </div>
 
                         <p>
-                            info@daniyaalperfumery.com<br />
-                            support@daniyaalperfumery.com<br />
+                            daniyaalperfumery@gmail.com<br />
                             Response within 24 hours
                         </p>
-                    </div>
-
-                    <div className="info-card">
-                        <div className="info-header">
-                            <div className="icon-circle">
-                                <img src={clock} alt="clock" />
-                            </div>
-                            <h3>Store Hours</h3>
-                        </div>
-
-                        <div className="store-hours">
-                            <div className="row">
-                                <span className="day">Monday - Friday</span>
-                                <span className="time">9:00 AM – 8:00 PM</span>
-                            </div>
-
-                            <div className="row">
-                                <span className="day">Saturday</span>
-                                <span className="time">9:00 AM – 6:00 PM</span>
-                            </div>
-
-                            <div className="row">
-                                <span className="day">Sunday</span>
-                                <span className="time">10:00 AM – 4:00 PM</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
 

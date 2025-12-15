@@ -78,34 +78,16 @@ const AboutUs = () => {
             </div>
             <div className="about-our-artisans">
                 <div className="our-artisans-title">
-                    <h3>Meet Our Artisans</h3>
+                    <h3>Meet Our Founder</h3>
                 </div>
                 <div className="our-artisans-container">
                     <div className="our-artisans">
-                        <h5>MA</h5>
-                        <h6>Master Ahmad</h6>
-                        <p>Chief Perfumer</p>
+                        <h5>AG</h5>
+                        <h6>Amanullah Ghazi</h6>
+                        <p>Founder</p>
                         <p>
-                            With over 30 years of experience, Master Ahmad leads our fragrance creation with
+                            With over 10 years of experience, Amanullah Ghazi leads our fragrance creation with
                             unparalleled expertise in traditional attar-making.
-                        </p>
-                    </div>
-                    <div className="our-artisans">
-                        <h5>SF</h5>
-                        <h6>Sophia Francis</h6>
-                        <p>Fragrance Specialist</p>
-                        <p>
-                            Sophia brings modern innovation to traditional techniques, creating unique blends
-                            that appeal to contemporary tastes.
-                        </p>
-                    </div>
-                    <div className="our-artisans">
-                        <h5>RK</h5>
-                        <h6>Rajesh Kumar</h6>
-                        <p>Quality Assurance</p>
-                        <p>
-                            Rajesh ensures every product meets our highest standards, maintaining the quality
-                            that Daniyaal Perfumery is known for.
                         </p>
                     </div>
                 </div>

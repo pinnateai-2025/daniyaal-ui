@@ -125,11 +125,11 @@
 
 .our-artisans-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    justify-items: center;
+    grid-template-columns: 1fr;
+    place-items: center;
     margin-top: 50px;
 }
+
 
 .our-artisans {
     background: var(--color-bg);
