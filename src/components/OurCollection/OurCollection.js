@@ -128,6 +128,7 @@ const fragrances = [
 ];
 
 const OurCollection = () => {
+    const [allFragrances, setAllFragrances] = useState(fragrances);
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [isSortOpen, setIsSortOpen] = useState(false);
     const [selectedFilter, setSelectedFilter] = useState("All");
@@ -139,6 +140,43 @@ const OurCollection = () => {
     const { addToCart } = useCart();
     const filterRef = useRef(null);
     const sortRef = useRef(null);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                // Hardcoded URL to ensure it works immediately without server restart
+                const apiUrl = "https://api.daniyaalperfumery.in/api/category";
+                console.log("Fetching from:", apiUrl);
+
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                console.log("API Data received:", data);
+
+                const apiProducts = data.map((item) => ({
+                    id: 1000 + item.id,
+                    img: perfume1,
+                    name: item.name,
+                    desc: item.description,
+                    rating: 4.8,
+                    reviews: 0,
+                    price: 2500,
+                    size: "10ml",
+                    category: "Special",
+                    stock: true,
+                }));
+
+                console.log("Merged Products:", [...fragrances, ...apiProducts]);
+                setAllFragrances([...fragrances, ...apiProducts]);
+            } catch (error) {
+                console.error("Error fetching products:", error);
+            }
+        };
+
+        fetchProducts();
+    }, []);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -157,7 +195,7 @@ const OurCollection = () => {
     }, []);
 
     // Filter and search logic combined
-    let filteredFragrances = fragrances.filter((item) => {
+    let filteredFragrances = allFragrances.filter((item) => {
         const matchesCategory =
             selectedFilter === "All" ||
             item.category.toLowerCase() === selectedFilter.toLowerCase();
@@ -249,6 +287,7 @@ const OurCollection = () => {
                                         "Woody",
                                         "Fresh",
                                         "Premium",
+                                        "Special",
                                     ].map((item) => (
                                         <div
                                             key={item}
@@ -329,7 +368,7 @@ const OurCollection = () => {
 
                 {/* Product Count */}
                 <p className="product-count">
-                    Showing {filteredFragrances.length} of {fragrances.length} products
+                    Showing {filteredFragrances.length} of {allFragrances.length} products
                 </p>
             </div>
 
@@ -399,7 +438,7 @@ const OurCollection = () => {
                                 <h3>
                                     <Link
                                         to={`/product/${item.id}`}
-                                        state={{ product: item, allProducts: fragrances }}
+                                        state={{ product: item, allProducts: allFragrances }}
                                         className="h3-link"
                                     >
                                         {item.name}
