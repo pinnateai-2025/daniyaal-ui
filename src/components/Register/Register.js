@@ -8,30 +8,30 @@ const Register = ({ onClose }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    alert("Login clicked (connect backend later)");
+    alert("Login clicked ✅");
   };
 
   const handleSignup = (e) => {
     e.preventDefault();
-    alert("Create Account clicked (connect backend later)");
+    alert("Create Account clicked ✅");
   };
 
   const handleForgotPassword = () => {
-    alert("Forgot password flow will be added");
+    alert("Forgot password clicked ✅");
   };
 
   return (
-    <div className="register-container" onClick={(e) => e.stopPropagation()}>
-      <div className="register-box">
-
-        {/* Close */}
+    <div className="register-container" onClick={onClose}>
+      <div
+        className="register-box"
+        onClick={(e) => e.stopPropagation()}   // ✅ CRITICAL
+      >
         <button className="close-btn" onClick={onClose}>
           <FiX />
         </button>
 
         <h2 className="register-title">Welcome to Daniyaal Perfumery</h2>
 
-        {/* Tabs */}
         <div className="auth-tabs">
           <button
             type="button"
@@ -49,19 +49,14 @@ const Register = ({ onClose }) => {
           </button>
         </div>
 
-        {/* LOGIN */}
         {tab === "login" && (
           <form className="auth-form" onSubmit={handleLogin}>
             <label>Email</label>
-            <input type="email" required placeholder="Enter your email" />
+            <input type="email" required />
 
             <label>Password</label>
             <div className="password-field">
-              <input
-                type={showPass ? "text" : "password"}
-                required
-                placeholder="Enter your password"
-              />
+              <input type={showPass ? "text" : "password"} required />
               <span onClick={() => setShowPass(!showPass)}>
                 {showPass ? <FiEyeOff /> : <FiEye />}
               </span>
@@ -77,38 +72,28 @@ const Register = ({ onClose }) => {
           </form>
         )}
 
-        {/* SIGN UP */}
         {tab === "signup" && (
           <form className="auth-form" onSubmit={handleSignup}>
             <label>Full Name</label>
-            <input type="text" required placeholder="Enter your full name" />
+            <input type="text" required />
 
             <label>Email</label>
-            <input type="email" required placeholder="Enter your email" />
+            <input type="email" required />
 
             <label>Password</label>
             <div className="password-field">
-              <input
-                type={showPass ? "text" : "password"}
-                required
-                placeholder="Create a password"
-              />
+              <input type={showPass ? "text" : "password"} required />
               <span onClick={() => setShowPass(!showPass)}>
                 {showPass ? <FiEyeOff /> : <FiEye />}
               </span>
             </div>
 
             <label>Confirm Password</label>
-            <input type="password" required placeholder="Confirm your password" />
+            <input type="password" required />
 
             <button type="submit" className="auth-btn">
               Create Account
             </button>
-
-            <p className="policy-text">
-              By signing up, you agree to our{" "}
-              <span>Terms of Service</span> and <span>Privacy Policy</span>
-            </p>
           </form>
         )}
       </div>
