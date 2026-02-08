@@ -4,73 +4,56 @@ import { FaStar } from "react-icons/fa";
 import { FiShoppingCart, FiArrowRight } from "react-icons/fi";
 import { useWishlist } from "../../context/WishlistContext";
 import { useCart } from "../../context/CartContext";
+import { useCategory } from "../../context/CategoryContext";
 import { useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import perfume1 from "../../assets/perfume1.jfif";
 import perfume2 from "../../assets/perfume2.jfif";
 import perfume3 from "../../assets/perfume3.jpg";
 import perfume4 from "../../assets/perfume4.jpg";
 
-const fragrances = [
-    {
-        id: 1,
-        img: perfume1,
-        name: "Royal Oud Majestic",
-        desc: "A luxurious blend of premium oud with hints of rose and amber. This fragrance exudes timeless elegance.",
-        rating: 4.8,
-        reviews: 156,
-        price: 2800,
-        oldPrice: 3200,
-        size: "12ml",
-        discount: "₹400",
-        category: "Oud"
-    },
-    {
-        id: 2,
-        img: perfume2,
-        name: "Golden Saffron Elixir",
-        desc: "An enchanting attar infused with precious saffron and delicate floral notes.",
-        rating: 4.6,
-        reviews: 92,
-        price: 2200,
-        oldPrice: 2600,
-        size: "10ml",
-        discount: "₹400",
-        category: "Floral"
-    },
-    {
-        id: 3,
-        img: perfume3,
-        name: "Desert Breeze Collection",
-        desc: "An exclusive collection inspired by the vast deserts, featuring warm spicy undertones.",
-        rating: 4.9,
-        reviews: 203,
-        price: 3200,
-        oldPrice: 3800,
-        size: "15ml",
-        discount: "₹600",
-        category: "Woody"
-    },
-    {
-        id: 4,
-        img: perfume4,
-        name: "Sultan's Secret Blend",
-        desc: "The most exclusive attar in our collection, crafted with rare ingredients and unmatched sophistication.",
-        rating: 5,
-        reviews: 45,
-        price: 4200,
-        oldPrice: 4800,
-        size: "20ml",
-        discount: "₹600",
-        category: "Premium"
-    },
-];
+// Raw/Default data for fields missing in API
+const DEFAULT_CARD_DATA = {
+    rating: 4.8,
+    reviews: 120,
+    price: 2500,
+    oldPrice: 3000,
+    size: "12ml",
+    discount: "₹500",
+    desc: "A premium fragrance crafted with the finest ingredients and traditional techniques."
+};
 
 const FragranceCollection = () => {
-
+    const { categories, loading } = useCategory();
+    const [fragrances, setFragrances] = useState([]);
     const { wishlist, toggleWishlist } = useWishlist();
     const { addToCart } = useCart();
     const navigate = useNavigate();
+
+    // Limit to 4 featured items for home page
+    useEffect(() => {
+        if (categories && categories.length > 0) {
+            const apiProducts = categories.slice(0, 4).map((item, index) => ({
+                id: item.id,
+                img: [perfume1, perfume2, perfume3, perfume4][index % 4],
+                name: item.name,
+                desc: item.description || DEFAULT_CARD_DATA.desc,
+                category: item.name,
+                rating: DEFAULT_CARD_DATA.rating,
+                reviews: DEFAULT_CARD_DATA.reviews,
+                price: DEFAULT_CARD_DATA.price,
+                oldPrice: DEFAULT_CARD_DATA.oldPrice,
+                size: DEFAULT_CARD_DATA.size,
+                discount: DEFAULT_CARD_DATA.discount
+            }));
+            setFragrances(apiProducts);
+        }
+    }, [categories]);
+
+    if (loading && fragrances.length === 0) {
+        return null; // Or a skeleton loader
+    }
 
     return (
         <section className="fragrance-collection">
@@ -131,7 +114,7 @@ const FragranceCollection = () => {
                                     {item.name}
                                 </Link>
                             </h3>
-                            
+
                             <p className="desc">{item.desc}</p>
 
                             <div className="price-row">

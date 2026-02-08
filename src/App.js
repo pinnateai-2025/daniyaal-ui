@@ -13,6 +13,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Profile from "./pages/Profile";
 import { WishlistProvider } from "./context/WishlistContext";
 import { CartProvider } from "./context/CartContext";
+import { CategoryProvider } from "./context/CategoryContext";
 import ScrollRestorationFix from "./components/ScrollRestorationFix";
 
 function App() {
@@ -21,26 +22,29 @@ function App() {
   }
 
   return (
-    <CartProvider>
-      <WishlistProvider>
-        <ScrollRestorationFix />
+    <CategoryProvider>
+      <CartProvider>
+        <WishlistProvider>
+          <ScrollRestorationFix />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/product/:id" element={<Product />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/our-story" element={<OurStory />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/gifts" element={<Gifts />} />
-          <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-      </WishlistProvider>
-    </CartProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/our-story" element={<OurStory />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/gifts" element={<Gifts />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+        </WishlistProvider>
+      </CartProvider>
+    </CategoryProvider>
   );
 }
+
 
 export default App;

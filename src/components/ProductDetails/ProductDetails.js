@@ -1,28 +1,75 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import "./ProductDetails.css";
 import { FiShoppingCart, FiShare2, FiHeart } from "react-icons/fi";
 import { IoMdArrowBack } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
 import image1 from "../../assets/perfume1.jfif";
 import image2 from "../../assets/perfume2.jfif";
+import perfume1 from "../../assets/perfume1.jfif";
+import perfume2 from "../../assets/perfume2.jfif";
+import perfume3 from "../../assets/perfume3.jpg";
+import perfume4 from "../../assets/perfume4.jpg";
 import authentic from "../../assets/authentic.png";
 import quality from "../../assets/quality.png";
 import returns from "../../assets/return.png";
 import shipping from "../../assets/shipping.png";
 import { useWishlist } from "../../context/WishlistContext";
 import { useCart } from "../../context/CartContext";
+import { useCategory } from "../../context/CategoryContext";
+
+// Raw/Default data for fields missing in API
+const DEFAULT_CARD_DATA = {
+    rating: 4.8,
+    reviews: 120,
+    price: 2500,
+    oldPrice: 3000,
+    size: "12ml",
+    discount: "₹500",
+    desc: "A premium fragrance crafted with the finest ingredients and traditional techniques."
+};
 
 const ProductDetails = () => {
-
+    const { id } = useParams();
+    const { getCategoryById } = useCategory();
     const { wishlist, toggleWishlist } = useWishlist();
     const { addToCart } = useCart();
 
     const location = useLocation();
     const navigate = useNavigate();
 
-    const product = location.state?.product;
-    const allProducts = location.state?.allProducts || [];
+    const [product, setProduct] = useState(location.state?.product || null);
+    const [loading, setLoading] = useState(!product);
+
+    useEffect(() => {
+        const loadProduct = async () => {
+            if (!product && id) {
+                setLoading(true);
+                const result = await getCategoryById(id);
+                if (result.success && result.data) {
+                    const item = result.data;
+                    const index = parseInt(id) || 0;
+                    setProduct({
+                        id: item.id,
+                        img: [perfume1, perfume2, perfume3, perfume4][index % 4],
+                        name: item.name,
+                        desc: item.description || DEFAULT_CARD_DATA.desc,
+                        category: item.name,
+                        rating: DEFAULT_CARD_DATA.rating,
+                        reviews: DEFAULT_CARD_DATA.reviews,
+                        price: DEFAULT_CARD_DATA.price,
+                        oldPrice: DEFAULT_CARD_DATA.oldPrice,
+                        size: DEFAULT_CARD_DATA.size,
+                        discount: DEFAULT_CARD_DATA.discount
+                    });
+                } else {
+                    navigate("/products");
+                }
+                setLoading(false);
+            }
+        };
+        loadProduct();
+    }, [id, product, getCategoryById, navigate]);
 
     const fallbackImages = [image1, image2];
     const images = product?.images || [product?.img, ...fallbackImages];
@@ -32,11 +79,12 @@ const ProductDetails = () => {
     const [tab, setTab] = useState("details");
 
     useEffect(() => {
-        if (!product) {
-            navigate("/");
+        if (product && !mainImg) {
+            setMainImg(product.img);
         }
-    }, [product, navigate]);
+    }, [product, mainImg]);
 
+    if (loading) return <div className="loading-container">Loading Product Details...</div>;
     if (!product) return null;
 
     return (
@@ -47,7 +95,7 @@ const ProductDetails = () => {
 
             <div className="product-info">
                 <div className="product-images">
-                    <img src={mainImg} alt="Product" className="main-img" />
+                    <img src={mainImg || product.img} alt="Product" className="main-img" />
 
                     <div className="thumbnail-row">
                         {images.map((img, i) => (

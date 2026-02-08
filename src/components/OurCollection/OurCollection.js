@@ -8,127 +8,29 @@ import "./OurCollection.css";
 import { Link } from "react-router-dom";
 import { useWishlist } from "../../context/WishlistContext";
 import { useCart } from "../../context/CartContext";
+import { useCategory } from "../../context/CategoryContext";
 
 import perfume1 from "../../assets/perfume1.jfif";
 import perfume2 from "../../assets/perfume2.jfif";
 import perfume3 from "../../assets/perfume3.jpg";
 import perfume4 from "../../assets/perfume4.jpg";
 
-const fragrances = [
-    {
-        id: 1,
-        img: perfume1,
-        name: "Royal Oud Majestic",
-        desc: "A luxurious blend of premium oud with hints of rose and amber. This fragrance exudes timeless elegance.",
-        rating: 4.8,
-        reviews: 156,
-        price: 2800,
-        oldPrice: 3200,
-        size: "12ml",
-        discount: "₹400",
-        category: "Oud",
-        stock: true
-    },
-    {
-        id: 2,
-        img: perfume2,
-        name: "Golden Saffron Elixir",
-        desc: "An enchanting attar infused with precious saffron and delicate floral notes.",
-        rating: 4.6,
-        reviews: 92,
-        price: 2200,
-        oldPrice: 2600,
-        size: "10ml",
-        discount: "₹400",
-        category: "Floral",
-        stock: true
-    },
-    {
-        id: 3,
-        img: perfume3,
-        name: "Desert Breeze Collection",
-        desc: "An exclusive collection inspired by the vast deserts, featuring warm spicy undertones.",
-        rating: 4.9,
-        reviews: 203,
-        price: 3200,
-        oldPrice: 3800,
-        size: "15ml",
-        discount: "₹600",
-        category: "Woody",
-        stock: true
-    },
-    {
-        id: 4,
-        img: perfume4,
-        name: "Sultan's Secret Blend",
-        desc: "The most exclusive attar in our collection, crafted with rare ingredients and unmatched sophistication.",
-        rating: 5,
-        reviews: 45,
-        price: 4200,
-        oldPrice: 4800,
-        size: "20ml",
-        discount: "₹600",
-        category: "Premium",
-        stock: true
-    },
-    {
-        id: 5,
-        img: perfume4,
-        name: "Mystic Amber Dreams",
-        desc: "The most exclusive attar in our collection, crafted with rare ingredients and unmatched sophistication.",
-        rating: 4.7,
-        reviews: 78,
-        price: 1800,
-        oldPrice: 2200,
-        size: "8ml",
-        discount: "₹400",
-        category: "Oriental",
-        stock: true
-    },
-    {
-        id: 6,
-        img: perfume4,
-        name: "Velvet Rose Passion",
-        desc: "A romantic floral scent capturing the essence of fresh roses and soft musk.",
-        rating: 4.5,
-        reviews: 134,
-        price: 2000,
-        size: "10ml",
-        category: "Floral",
-        stock: true
-    },
-    {
-        id: 7,
-        img: perfume4,
-        name: "Himalayan Breeze",
-        desc: "A crisp and refreshing attar inspired by the cool Himalayan winds.",
-        rating: 4.4,
-        reviews: 67,
-        price: 1600,
-        oldPrice: 1900,
-        size: "8ml",
-        discount: "₹300",
-        category: "Fresh",
-        stock: true
-    },
-    {
-        id: 8,
-        img: perfume4,
-        name: "Midnight Jasmine",
-        desc: "A deep floral attar with intoxicating jasmine notes blended with soft musk.",
-        rating: 4.6,
-        reviews: 88,
-        price: 1900,
-        oldPrice: 2300,
-        size: "9ml",
-        discount: "₹400",
-        category: "Floral",
-        stock: false
-    },
-];
+// Raw/Default data for fields missing in API
+const DEFAULT_CARD_DATA = {
+    rating: 4.8,
+    reviews: 120,
+    price: 2500,
+    oldPrice: 3000,
+    size: "12ml",
+    discount: "₹500",
+    stock: true,
+    desc: "A premium fragrance crafted with the finest ingredients and traditional techniques for a long-lasting and luxurious experience."
+};
 
 const OurCollection = () => {
-    const [allFragrances, setAllFragrances] = useState(fragrances);
+    const { categories, loading: catLoading } = useCategory();
+    const [allFragrances, setAllFragrances] = useState([]);
+
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [isSortOpen, setIsSortOpen] = useState(false);
     const [selectedFilter, setSelectedFilter] = useState("All");
@@ -141,42 +43,30 @@ const OurCollection = () => {
     const filterRef = useRef(null);
     const sortRef = useRef(null);
 
+    // Sync allFragrances with categories from API
     useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                // Hardcoded URL to ensure it works immediately without server restart
-                const apiUrl = "https://api.daniyaalperfumery.in/api/category";
-                console.log("Fetching from:", apiUrl);
+        if (categories && categories.length > 0) {
+            const apiProducts = categories.map((item, index) => ({
+                id: item.id,
+                // Cycle through local images if API doesn't provide one
+                img: [perfume1, perfume2, perfume3, perfume4][index % 4],
+                name: item.name,
+                // Content from API or Raw fallback
+                desc: item.description || DEFAULT_CARD_DATA.desc,
+                category: item.name, // In this structure, category name is used for both filtering and identifying
 
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const data = await response.json();
-                console.log("API Data received:", data);
-
-                const apiProducts = data.map((item) => ({
-                    id: 1000 + item.id,
-                    img: perfume1,
-                    name: item.name,
-                    desc: item.description,
-                    rating: 4.8,
-                    reviews: 0,
-                    price: 2500,
-                    size: "10ml",
-                    category: "Special",
-                    stock: true,
-                }));
-
-                console.log("Merged Products:", [...fragrances, ...apiProducts]);
-                setAllFragrances([...fragrances, ...apiProducts]);
-            } catch (error) {
-                console.error("Error fetching products:", error);
-            }
-        };
-
-        fetchProducts();
-    }, []);
+                // Fields not in API (Filhal raw data me rahega)
+                rating: DEFAULT_CARD_DATA.rating,
+                reviews: DEFAULT_CARD_DATA.reviews,
+                price: DEFAULT_CARD_DATA.price,
+                oldPrice: DEFAULT_CARD_DATA.oldPrice,
+                size: DEFAULT_CARD_DATA.size,
+                discount: DEFAULT_CARD_DATA.discount,
+                stock: DEFAULT_CARD_DATA.stock
+            }));
+            setAllFragrances(apiProducts);
+        }
+    }, [categories]);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -242,6 +132,10 @@ const OurCollection = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    if (catLoading && allFragrances.length === 0) {
+        return <div className="loading-container">Loading Collection...</div>;
+    }
+
     return (
         <div className="ourcollection">
             <div className="ourcollection-title">
@@ -279,16 +173,7 @@ const OurCollection = () => {
                             </button>
                             {isFilterOpen && (
                                 <div className="dropdown-menu">
-                                    {[
-                                        "All",
-                                        "Oud",
-                                        "Floral",
-                                        "Oriental",
-                                        "Woody",
-                                        "Fresh",
-                                        "Premium",
-                                        "Special",
-                                    ].map((item) => (
+                                    {["All", ...categories.map(c => c.name)].map((item) => (
                                         <div
                                             key={item}
                                             className="dropdown-item"
@@ -464,7 +349,7 @@ const OurCollection = () => {
                                         <button className="view-details-btn">
                                             View Details
                                         </button>
-                                        <button className="add-cart-btn">
+                                        <button className="add-cart-btn" onClick={() => addToCart(item)}>
                                             <FiShoppingCart /> Add to Cart
                                         </button>
                                     </div>
