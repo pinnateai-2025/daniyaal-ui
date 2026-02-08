@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { FiEye, FiEyeOff } from "react-icons/fi";
-import { FiX } from "react-icons/fi";
+import { FiEye, FiEyeOff, FiX } from "react-icons/fi";
 import { useAuth } from "../../context/AuthContext";
 import "./Register.css";
 
@@ -90,9 +89,8 @@ const Register = ({ onClose }) => {
     };
 
     return (
-        <div className="register-container" onClick={(e) => e.stopPropagation()}>
-            <div className="register-box">
-
+        <div className="register-container" onClick={onClose}>
+            <div className="register-box" onClick={(e) => e.stopPropagation()}>
                 {/* Close Button */}
                 <button className="close-btn" onClick={onClose}>
                     <FiX />
@@ -104,12 +102,14 @@ const Register = ({ onClose }) => {
                 {tab !== "forgot" && (
                     <div className="auth-tabs">
                         <button
+                            type="button"
                             className={tab === "login" ? "active" : ""}
                             onClick={() => { setTab("login"); setError(""); setSuccess(""); }}
                         >
                             Login
                         </button>
                         <button
+                            type="button"
                             className={tab === "signup" ? "active" : ""}
                             onClick={() => { setTab("signup"); setError(""); setSuccess(""); }}
                         >
