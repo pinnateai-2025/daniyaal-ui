@@ -14,6 +14,11 @@ const AddCart = () => {
     const { cart, updateQuantity, removeItem, clearCart } = useCart();
     const navigate = useNavigate();
 
+    // Calculate subtotal
+    const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    const shipping = subtotal >= 2000 || subtotal === 0 ? 0 : 150;
+    const total = subtotal + shipping;
+
     return (
         <div className="cart-container">
             {cart.length === 0 ? (
@@ -143,22 +148,25 @@ const AddCart = () => {
                                 <p className="order-summary">Order Summary</p>
                                 <div className="subtotal">
                                     <p>Subtotal</p>
-                                    <p>2000</p>
+                                    <p>₹{subtotal.toLocaleString()}</p>
                                 </div>
                                 <div className="shipping">
                                     <p>Shipping</p>
-                                    <p className="free">Free</p>
+                                    <p className={shipping === 0 ? "free" : ""}>
+                                        {shipping === 0 ? "Free" : `₹${shipping}`}
+                                    </p>
                                 </div>
                                 <div className="cart-order-border"></div>
                                 <div className="total">
                                     <p>Total</p>
-                                    <p>2000</p>
+                                    <p>₹{total.toLocaleString()}</p>
                                 </div>
-                                <button className="checkout">
+                                <button className="checkout" onClick={() => navigate("/checkout")}>
                                     <img src={Checkout} alt="checkout" /> Proceed to Checkout
                                 </button>
-                                <p className="cart-order-note">Please login to continue with checkout</p>
+                                <p className="cart-order-note">Enjoy free shipping above ₹2000</p>
                             </div>
+
 
                             <div className="cart-points">
                                 <div className="free-shipping">

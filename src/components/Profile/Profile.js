@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { FiUser, FiLock, FiEdit2, FiSave, FiX } from 'react-icons/fi';
+import { useOrder } from '../../context/OrderContext';
+import { FiUser, FiLock, FiEdit2, FiSave, FiX, FiShoppingBag, FiTruck, FiCheckCircle, FiClock, FiXCircle } from 'react-icons/fi';
 import './Profile.css';
 
 const Profile = () => {
     const { user, updateProfile, changePassword, logout } = useAuth();
+    const { orders, cancelOrder, fetchUserOrders } = useOrder();
     const [activeTab, setActiveTab] = useState('info');
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState({ type: '', text: '' });
@@ -65,6 +67,28 @@ const Profile = () => {
         setLoading(false);
     };
 
+    const handleCancelOrder = async (id) => {
+        if (window.confirm("Are you sure you want to cancel this order?")) {
+            const res = await cancelOrder(id);
+            if (res.success) {
+                setMessage({ type: 'success', text: 'Order cancelled successfully' });
+                fetchUserOrders();
+            } else {
+                setMessage({ type: 'error', text: 'Failed to cancel order' });
+            }
+        }
+    }
+
+    const getStatusBadge = (status) => {
+        switch (status.toLowerCase()) {
+            case 'pending': return <span className="status pending"><FiClock /> Pending</span>;
+            case 'processing': return <span className="status processing"><FiTruck /> Processing</span>;
+            case 'completed': return <span className="status completed"><FiCheckCircle /> Delivered</span>;
+            case 'cancelled': return <span className="status cancelled"><FiXCircle /> Cancelled</span>;
+            default: return <span className="status">{status}</span>;
+        }
+    }
+
     return (
         <div className="profile-container">
             <div className="profile-sidebar">
@@ -81,6 +105,12 @@ const Profile = () => {
                         onClick={() => setActiveTab('info')}
                     >
                         <FiUser /> Personal Info
+                    </button>
+                    <button
+                        className={activeTab === 'orders' ? 'active' : ''}
+                        onClick={() => setActiveTab('orders')}
+                    >
+                        <FiShoppingBag /> My Orders
                     </button>
                     <button
                         className={activeTab === 'password' ? 'active' : ''}
@@ -166,6 +196,51 @@ const Profile = () => {
                                 </div>
                             )}
                         </form>
+                    </div>
+                )}
+
+                {activeTab === 'orders' && (
+                    <div className="profile-section">
+                        <h2>Order History</h2>
+                        <div className="orders-list">
+                            {orders.length === 0 ? (
+                                <div className="empty-orders">
+                                    <FiShoppingBag size={48} opacity={0.3} />
+                                    <p>You haven't placed any orders yet.</p>
+                                </div>
+                            ) : (
+                                orders.map(order => (
+                                    <div key={order.id} className="order-item">
+                                        <div className="order-item-header">
+                                            <div className="order-meta">
+                                                <span className="order-id">Order ID: #{order.id}</span>
+                                                <span className="order-date">{new Date(order.createdAt).toLocaleDateString()}</span>
+                                            </div>
+                                            {getStatusBadge(order.status)}
+                                        </div>
+                                        <div className="order-items-minimal">
+                                            {order.items?.map((item, idx) => (
+                                                <p key={idx}>{item.name} x {item.quantity}</p>
+                                            ))}
+                                        </div>
+                                        <div className="order-footer">
+                                            <div className="order-total">
+                                                <span>Total:</span>
+                                                <strong>₹{parseFloat(order.totalAmount).toLocaleString()}</strong>
+                                            </div>
+                                            {(order.status === 'pending' || order.status === 'Processing') && (
+                                                <button
+                                                    className="cancel-order-btn"
+                                                    onClick={() => handleCancelOrder(order.id)}
+                                                >
+                                                    Cancel Order
+                                                </button>
+                                            )}
+                                        </div>
+                                    </div>
+                                ))
+                            )}
+                        </div>
                     </div>
                 )}
 
