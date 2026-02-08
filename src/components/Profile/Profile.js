@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useOrder } from '../../context/OrderContext';
 import { FiUser, FiLock, FiEdit2, FiSave, FiX, FiShoppingBag, FiTruck, FiCheckCircle, FiClock, FiXCircle } from 'react-icons/fi';
@@ -19,6 +19,17 @@ const Profile = () => {
         phone: user?.phone || '',
         address: user?.address || ''
     });
+
+    useEffect(() => {
+        if (user) {
+            setProfileData({
+                name: user.name || '',
+                email: user.email || '',
+                phone: user.phone || '',
+                address: user.address || ''
+            });
+        }
+    }, [user]);
 
     const [passwordData, setPasswordData] = useState({
         currentPassword: '',
@@ -55,8 +66,8 @@ const Profile = () => {
         }
         setLoading(true);
         const result = await changePassword({
-            oldPassword: passwordData.currentPassword,
-            newPassword: passwordData.newPassword
+            old_password: passwordData.currentPassword,
+            new_password: passwordData.newPassword
         });
         if (result.success) {
             setMessage({ type: 'success', text: result.message });
