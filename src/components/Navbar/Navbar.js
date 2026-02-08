@@ -2,17 +2,19 @@ import { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import { FiHeart, FiSearch, FiShoppingCart, FiUser, FiX, FiMenu } from "react-icons/fi";
+import { FiHeart, FiSearch, FiShoppingCart, FiUser, FiX, FiMenu, FiLogOut } from "react-icons/fi";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { useTheme } from "../../context/ThemeContext";
 import { useWishlist } from "../../context/WishlistContext";
 import { useCart } from "../../context/CartContext";
+import { useAuth } from "../../context/AuthContext";
 import Register from "../Register/Register";
 
 const Navbar = () => {
 
   const { wishlist } = useWishlist();
   const { cart } = useCart();
+  const { user, logout } = useAuth();
 
   const [activeLink, setActiveLink] = useState("Home");
   const [searchText, setSearchText] = useState("");
@@ -36,6 +38,17 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
+    if (showRegister) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [showRegister]);
+
+  useEffect(() => {
     const current = navItems.find((item) => item.path === location.pathname);
     if (current) setActiveLink(current.name);
   }, [location.pathname]);
@@ -53,8 +66,10 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const navbar = document.querySelector(".navbar");
-      if (window.scrollY > 10) navbar.classList.add("scrolled");
-      else navbar.classList.remove("scrolled");
+      if (navbar) {
+        if (window.scrollY > 10) navbar.classList.add("scrolled");
+        else navbar.classList.remove("scrolled");
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -136,6 +151,21 @@ const Navbar = () => {
                   <span>Cart</span>
                 </button>
               </div>
+
+              {user ? (
+                <div className="mobile-auth-btns">
+                  <button className="mobile-profile-btn" onClick={() => { navigate("/profile"); setMenuOpen(false); }}>
+                    <FiUser /> {user.name.split(' ')[0]}'s Profile
+                  </button>
+                  <button className="mobile-logout-btn" onClick={() => { logout(); setMenuOpen(false); }}>
+                    <FiLogOut /> Logout
+                  </button>
+                </div>
+              ) : (
+                <button className="mobile-login-btn" onClick={() => { setShowRegister(true); setMenuOpen(false); }}>
+                  <FiUser /> Login / Sign Up
+                </button>
+              )}
             </div>
           </nav>
 
@@ -182,10 +212,33 @@ const Navbar = () => {
               )}
             </div>
 
-            {/* LOGIN BUTTON OPENS MODAL */}
-            <button className="login-btn" onClick={() => setShowRegister(true)}>
-              <FiUser className="icon user" /> Login
-            </button>
+            {/* LOGIN BUTTON OR USER PROFILE */}
+            {user ? (
+              <div className="user-nav-item">
+                <div className="profile-dropdown-container">
+                  <button className="profile-btn" onClick={() => navigate("/profile")}>
+                    <FiUser className="icon user" /> {user.name.split(' ')[0]}
+                  </button>
+                  <div className="profile-dropdown">
+                    <div className="dropdown-header">
+                      <p className="user-name">{user.name}</p>
+                      <p className="user-email">{user.email}</p>
+                    </div>
+                    <div className="dropdown-divider"></div>
+                    <button onClick={() => navigate("/profile")}>
+                      <FiUser /> View Profile
+                    </button>
+                    <button onClick={logout} className="logout-action">
+                      <FiLogOut /> Logout
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <button className="login-btn" onClick={() => setShowRegister(true)}>
+                <FiUser className="icon user" /> Login
+              </button>
+            )}
           </div>
 
           <button

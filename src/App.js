@@ -10,6 +10,7 @@ import Product from "./pages/Product";
 import Wishlist from "./pages/Wishlist";
 import Cart from "./pages/Cart";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Profile from "./pages/Profile";
 import { WishlistProvider } from "./context/WishlistContext";
 import { CartProvider } from "./context/CartContext";
 import ScrollRestorationFix from "./components/ScrollRestorationFix";
@@ -35,6 +36,7 @@ function App() {
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </WishlistProvider>
     </CartProvider>
